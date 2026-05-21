@@ -1,4 +1,4 @@
-﻿# Personal Academic Website
+# Personal Academic Website
 
 A local-first static website for an English academic and design-oriented personal homepage.
 

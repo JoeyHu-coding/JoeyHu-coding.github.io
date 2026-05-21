@@ -1,10 +1,20 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Your Name | Academic Portfolio</title>
   <meta name="description" content="Personal academic portfolio bringing together research interests, publications, and selected design-based work.">
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem("theme");
+        document.documentElement.dataset.theme = savedTheme || "dark";
+      } catch (error) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,6 +31,10 @@
       <a href="portfolio.html">Portfolio</a>
       <a href="archive.html">Archive</a>
     </nav>
+    <button class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="true">
+      <span class="theme-toggle__label">Theme</span>
+      <span class="theme-toggle__state">Dark</span>
+    </button>
   </header>
 
   <main>
