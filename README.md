@@ -31,7 +31,13 @@ Then visit `http://localhost:8080`.
 ## Where to put files
 
 - Put your CV PDF in `assets/cv.pdf`.
-- Put project images in `assets/portfolio/`.
+- Put profile images in `assets/profile/`.
+- Put research figures in `assets/research/`.
+- Put publication figures in `assets/publications/`.
+- Put project images in `assets/projects/`.
+- Put portfolio images in `assets/portfolio/`.
+- Put archive images in `assets/archive/`.
+- See `assets/IMAGE_GUIDE.md` before replacing image placeholders.
 - Replace placeholder text page by page.
 
 ## Public hosting options
