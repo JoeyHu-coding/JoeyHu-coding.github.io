@@ -1283,3 +1283,355 @@ h2 {
     font-size: clamp(2rem, 10vw, 3.1rem);
   }
 }
+
+/* Final personal-site polish: editorial, quiet, and text-first. */
+:root {
+  --paper: #11100d;
+  --paper-2: #171510;
+  --paper-3: #201c15;
+  --ink: #eee7d8;
+  --ink-strong: #fff8ea;
+  --muted: #a49a88;
+  --muted-2: #7f7565;
+  --line: rgba(238, 231, 216, 0.13);
+  --line-strong: rgba(238, 231, 216, 0.24);
+  --panel: rgba(20, 18, 14, 0.72);
+  --panel-solid: #15130f;
+  --accent: #c27a45;
+  --accent-2: #b8c1a5;
+  --accent-wash: rgba(194, 122, 69, 0.12);
+  --shadow: none;
+}
+
+html[data-theme="light"] {
+  --paper: #f5f0e7;
+  --paper-2: #fffbf3;
+  --paper-3: #e9dfd0;
+  --ink: #1b1813;
+  --ink-strong: #11100d;
+  --muted: #625a4d;
+  --muted-2: #8a8071;
+  --line: rgba(27, 24, 19, 0.13);
+  --line-strong: rgba(27, 24, 19, 0.25);
+  --panel: rgba(255, 251, 243, 0.68);
+  --panel-solid: #fffbf3;
+  --accent: #9c5530;
+  --accent-2: #657560;
+  --accent-wash: rgba(156, 85, 48, 0.10);
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--paper-2) 34%, transparent), transparent 18rem),
+    radial-gradient(circle at 85% -10%, color-mix(in srgb, var(--accent-wash) 72%, transparent), transparent 22rem),
+    var(--paper);
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  text-rendering: optimizeLegibility;
+}
+
+body::before {
+  background:
+    linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 112px 112px,
+    linear-gradient(180deg, var(--line) 1px, transparent 1px) 0 0 / 112px 112px;
+  opacity: 0.18;
+}
+
+.site-header {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  padding-block: 0.8rem;
+  background: color-mix(in srgb, var(--paper) 90%, transparent);
+}
+
+.brand-mark {
+  width: 2.1rem;
+  height: 2.1rem;
+  border-color: var(--line-strong);
+  font-size: 0.68rem;
+}
+
+.brand-text,
+.nav,
+.theme-toggle,
+.button,
+.eyebrow,
+.section-kicker,
+.card-number,
+.research-block span,
+.archive-item span,
+.pub-meta,
+.profile-meta dt,
+.academic-columns h3 {
+  letter-spacing: 0.105em;
+}
+
+.nav a {
+  padding-bottom: 0.1rem;
+}
+
+.nav a::after {
+  bottom: -0.28rem;
+  background: color-mix(in srgb, var(--accent) 72%, transparent);
+}
+
+.theme-toggle {
+  border-color: var(--line);
+  color: var(--muted);
+}
+
+.home-main {
+  width: min(1060px, calc(100% - 2.25rem));
+}
+
+.academic-profile {
+  grid-template-columns: minmax(240px, 0.32fr) minmax(0, 0.68fr);
+  gap: clamp(2rem, 6vw, 5.6rem);
+  padding-top: clamp(2rem, 5vw, 4.2rem);
+  padding-bottom: clamp(2.5rem, 6vw, 4.6rem);
+}
+
+.academic-sidebar {
+  border-right-color: color-mix(in srgb, var(--line) 72%, transparent);
+}
+
+.academic-sidebar .eyebrow {
+  color: var(--muted-2);
+}
+
+.academic-sidebar h1 {
+  margin-top: 0.35rem;
+  color: var(--ink-strong);
+  font-size: clamp(2rem, 3.25vw, 2.85rem);
+  line-height: 1.03;
+}
+
+.academic-sidebar .profile-title {
+  margin-top: 1rem;
+  color: color-mix(in srgb, var(--ink) 88%, var(--muted));
+  font-size: clamp(1.02rem, 1.45vw, 1.18rem);
+}
+
+.profile-meta {
+  gap: 0.7rem;
+  margin-top: 1.65rem;
+}
+
+.profile-meta div {
+  padding-top: 0.65rem;
+}
+
+.profile-meta dd,
+.academic-intro p,
+.home-supplement p {
+  color: color-mix(in srgb, var(--muted) 92%, var(--ink));
+}
+
+.academic-sidebar .profile-actions {
+  gap: 0.46rem;
+  margin-top: 1.45rem;
+}
+
+.button.primary {
+  background: color-mix(in srgb, var(--accent) 88%, var(--ink-strong));
+  border-color: color-mix(in srgb, var(--accent) 92%, transparent);
+}
+
+.button:not(.primary):hover {
+  background: color-mix(in srgb, var(--accent-wash) 58%, transparent);
+  color: var(--ink-strong);
+}
+
+.academic-intro {
+  max-width: 700px;
+}
+
+.academic-intro h2,
+.home-supplement h2,
+.page-title h1 {
+  font-weight: 500;
+}
+
+.academic-intro h2 {
+  position: relative;
+  display: inline-block;
+}
+
+.academic-intro h2::after {
+  content: "";
+  position: absolute;
+  left: calc(100% + 0.8rem);
+  top: 56%;
+  width: min(12vw, 5rem);
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.intro-lead {
+  max-width: 660px;
+  margin-top: 0.9rem;
+  color: color-mix(in srgb, var(--ink-strong) 96%, var(--accent-2));
+  font-size: clamp(1.18rem, 1.85vw, 1.45rem);
+}
+
+.academic-intro p {
+  max-width: 680px;
+  margin: 0.95rem 0;
+  line-height: 1.78;
+}
+
+.academic-columns {
+  gap: clamp(1.6rem, 4vw, 3.6rem);
+  margin-top: 2rem;
+}
+
+.academic-columns li {
+  padding-left: 0.1rem;
+  line-height: 1.55;
+}
+
+.compact-links a {
+  text-decoration-thickness: 1px;
+}
+
+.home-supplement {
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.6rem, 5vw, 5rem);
+  padding-top: clamp(2.4rem, 5vw, 4.2rem);
+}
+
+.home-supplement h2 {
+  font-size: clamp(1.18rem, 2vw, 1.55rem);
+}
+
+.home-supplement p {
+  max-width: 32rem;
+  font-size: 0.96rem;
+}
+
+.page-shell {
+  width: min(1060px, calc(100% - 2.25rem));
+}
+
+.page-title {
+  border-top: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.page-title h1 {
+  max-width: 660px;
+  font-size: clamp(1.85rem, 2.9vw, 2.65rem);
+  line-height: 1.08;
+}
+
+.content-grid,
+.research-map,
+.pub-list,
+.portfolio-grid,
+.archive-list {
+  padding-top: clamp(1.8rem, 4vw, 3.1rem);
+}
+
+.research-map,
+.card-grid {
+  border-color: var(--line);
+  background: var(--line);
+}
+
+.research-block,
+.card,
+.publication-item,
+.project-card,
+.archive-item,
+.info-card {
+  background: color-mix(in srgb, var(--panel) 82%, transparent);
+  border-color: var(--line);
+}
+
+.project-card {
+  box-shadow: none;
+}
+
+.placeholder-image {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-wash) 64%, transparent), transparent 38%),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 34px 34px,
+    linear-gradient(180deg, var(--line) 1px, transparent 1px) 0 0 / 34px 34px,
+    color-mix(in srgb, var(--paper-3) 82%, var(--paper));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero .eyebrow,
+  .hero h1,
+  .hero .lead,
+  .hero-actions,
+  .profile-panel,
+  .info-card,
+  .home-strip,
+  .card,
+  .research-block,
+  .project-card,
+  .publication-item,
+  .archive-item {
+    animation: none;
+  }
+
+  .academic-sidebar,
+  .academic-intro,
+  .home-supplement > div {
+    animation: soft-in 520ms ease both;
+  }
+
+  .academic-intro { animation-delay: 80ms; }
+  .home-supplement > div:nth-child(2) { animation-delay: 120ms; }
+
+  @keyframes soft-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .home-main,
+  .page-shell {
+    width: min(100% - 1.4rem, 1060px);
+  }
+
+  .academic-profile {
+    gap: 1.5rem;
+  }
+
+  .academic-sidebar {
+    top: auto;
+  }
+
+  .home-supplement {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    padding-block: 0.72rem;
+  }
+
+  .academic-profile {
+    padding-top: 1.4rem;
+  }
+
+  .academic-intro h2::after {
+    width: 3rem;
+  }
+
+  .academic-sidebar .profile-actions {
+    gap: 0.4rem;
+  }
+}
