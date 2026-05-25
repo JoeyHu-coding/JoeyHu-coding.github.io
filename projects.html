@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects | Your Name</title>
+  <meta name="description" content="Research, funded, sponsored, and collaborative projects.">
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem("theme");
+        document.documentElement.dataset.theme = savedTheme || "dark";
+      } catch (error) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css?v=20260525-projects">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Home"><span class="brand-mark">YN</span><span class="brand-text">Your Name</span></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="research.html">Research</a>
+      <a href="publications.html">Publications</a>
+      <a class="active" href="projects.html">Projects</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="archive.html">Archive</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="true">
+      <span class="theme-toggle__label">Theme</span>
+      <span class="theme-toggle__state">Dark</span>
+    </button>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-title">
+      <p class="eyebrow">Projects</p>
+      <h1>Research, funded, sponsored, and collaborative work.</h1>
+    </section>
+
+    <section class="project-list" aria-label="Selected projects">
+      <article class="project-entry">
+        <div class="project-meta">
+          <span>Year - Year</span>
+          <span>Role</span>
+          <span>Funding / Sponsor</span>
+        </div>
+        <div class="project-body">
+          <h2>Project Title</h2>
+          <p>Use this space for a funded research project, science project, sponsored studio, enterprise collaboration, consulting project, or horizontal research engagement. Summarize the question, your role, methods, partners, and outputs.</p>
+          <dl>
+            <div><dt>Type</dt><dd>Research project / Funded project / Enterprise collaboration</dd></div>
+            <div><dt>Contribution</dt><dd>Project framing, spatial analysis, design research, data visualization, fieldwork, writing, or coordination.</dd></div>
+            <div><dt>Outputs</dt><dd>Report, publication, prototype, design proposal, dataset, presentation, or implementation support.</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="project-entry muted-project">
+        <div class="project-meta">
+          <span>Year</span>
+          <span>Participant / Lead</span>
+          <span>Institution / Company</span>
+        </div>
+        <div class="project-body">
+          <h2>Another Project Title</h2>
+          <p>Add additional projects here. Keep the writing factual and compact; this page should sit between Publications and Portfolio by showing organized work experience without becoming a visual case-study page.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Your Name</p>
+    <p><a href="mailto:your.email@example.com">your.email@example.com</a></p>
+  </footer>
+  <script src="script.js?v=20260525-projects"></script>
+</body>
+</html>

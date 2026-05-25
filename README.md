@@ -14,6 +14,7 @@ https://joeyhu-coding.github.io/
 - `about.html` - About
 - `research.html` - Research
 - `publications.html` - Publications
+- `projects.html` - Projects
 - `portfolio.html` - Portfolio
 - `archive.html` - Archive
 

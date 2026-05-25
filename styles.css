@@ -1635,3 +1635,139 @@ body::before {
     gap: 0.4rem;
   }
 }
+
+/* Projects page and final edge polish. */
+:root {
+  --measure: 68ch;
+}
+
+.site-header {
+  column-gap: clamp(0.8rem, 2vw, 1.6rem);
+}
+
+.nav {
+  gap: 0.58rem 0.86rem;
+}
+
+.academic-intro p,
+.prose,
+.publication-item p,
+.project-body p,
+.archive-item p {
+  max-width: var(--measure);
+}
+
+.profile-meta dd a,
+.compact-links a,
+.quick-card a,
+.site-footer a {
+  text-decoration-style: solid;
+  text-decoration-thickness: 1px;
+}
+
+.project-list {
+  display: grid;
+  gap: 1.2rem;
+  padding: clamp(1.8rem, 4vw, 3.1rem) 0;
+  border-top: 1px solid var(--line);
+}
+
+.project-entry {
+  display: grid;
+  grid-template-columns: minmax(170px, 0.28fr) minmax(0, 0.72fr);
+  gap: clamp(1.2rem, 4vw, 3rem);
+  padding: clamp(1.2rem, 3vw, 2rem) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.project-meta {
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+  color: var(--muted-2);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.105em;
+  text-transform: uppercase;
+}
+
+.project-body h2 {
+  font-size: clamp(1.45rem, 2.4vw, 2.1rem);
+  letter-spacing: -0.025em;
+}
+
+.project-body p {
+  color: color-mix(in srgb, var(--muted) 92%, var(--ink));
+  line-height: 1.72;
+}
+
+.project-body dl {
+  display: grid;
+  gap: 0.55rem;
+  margin: 1.2rem 0 0;
+}
+
+.project-body dl div {
+  display: grid;
+  grid-template-columns: minmax(90px, 0.22fr) minmax(0, 0.78fr);
+  gap: 1rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid color-mix(in srgb, var(--line) 72%, transparent);
+}
+
+.project-body dt {
+  color: var(--accent-2);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.105em;
+  text-transform: uppercase;
+}
+
+.project-body dd {
+  margin: 0;
+  color: var(--muted);
+}
+
+.muted-project {
+  opacity: 0.86;
+}
+
+.page-title {
+  padding-bottom: clamp(1.35rem, 3vw, 2.25rem);
+}
+
+.page-title h1 {
+  text-wrap: balance;
+}
+
+@supports (text-wrap: pretty) {
+  .academic-intro p,
+  .project-body p,
+  .home-supplement p,
+  .prose p {
+    text-wrap: pretty;
+  }
+}
+
+@media (max-width: 980px) {
+  .site-header {
+    grid-template-columns: auto auto;
+  }
+
+  .nav {
+    font-size: 0.68rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .project-entry,
+  .project-body dl div {
+    grid-template-columns: 1fr;
+  }
+
+  .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
