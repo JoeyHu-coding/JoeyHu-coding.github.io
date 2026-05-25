@@ -15,7 +15,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=20260525-home">
+  <link rel="stylesheet" href="styles.css?v=20260525-academic">
 </head>
 <body>
   <header class="site-header">
@@ -37,79 +37,70 @@
     </button>
   </header>
 
-  <main class="home-main">
-    <section class="home-dashboard" aria-labelledby="home-name">
-      <div class="profile-panel">
-        <p class="eyebrow">Academic Portfolio</p>
-        <div class="identity-line" aria-label="Profile keywords">
-          <span>Architecture & Urban Planning</span>
-          <span>Design Research</span>
-          <span>Spatial Thinking</span>
-        </div>
+  <main class="home-main academic-home">
+    <section class="academic-profile" aria-labelledby="home-name">
+      <aside class="academic-sidebar">
+        <p class="eyebrow">Personal Academic Website</p>
         <h1 id="home-name">Your Name</h1>
         <p class="profile-title">Designer and researcher with a background in architecture and urban planning.</p>
-        <p class="profile-summary">This website brings together my academic background, research interests, publications, and selected design-based work in one concise entry point.</p>
-        <div class="profile-actions" aria-label="Primary links">
-          <a class="button primary" href="assets/cv.pdf">Download CV</a>
-          <a class="button" href="mailto:your.email@example.com">Email</a>
-          <a class="button" href="about.html">About</a>
-          <a class="button" href="research.html">Research</a>
-        </div>
-      </div>
-
-      <aside class="home-aside" aria-label="Summary information">
-        <section class="info-card status-card">
-          <p class="card-label">Current Focus</p>
-          <p>Organizing a flexible academic profile across research interests, publications, and design-based work.</p>
-        </section>
-        <section class="info-card">
-          <p class="card-label">Research Areas</p>
-          <div class="tag-list">
-            <span>Spatial Analysis</span>
-            <span>Design Methods</span>
-            <span>Urban Systems</span>
-            <span>Visual Research</span>
+        <dl class="profile-meta">
+          <div>
+            <dt>Focus</dt>
+            <dd>Design research, spatial inquiry, and urban systems.</dd>
           </div>
-        </section>
-        <section class="info-card quick-card">
-          <p class="card-label">Quick Links</p>
-          <a href="publications.html">Publications</a>
-          <a href="portfolio.html">Portfolio</a>
-          <a href="archive.html">Archive</a>
-        </section>
+          <div>
+            <dt>Base</dt>
+            <dd>Location / Institution</dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd><a href="mailto:your.email@example.com">your.email@example.com</a></dd>
+          </div>
+        </dl>
+        <div class="profile-actions" aria-label="Primary links">
+          <a class="button primary" href="assets/cv.pdf">CV</a>
+          <a class="button" href="about.html">About</a>
+          <a class="button" href="portfolio.html">Portfolio</a>
+        </div>
       </aside>
 
-      <div class="home-strip" aria-label="Core homepage sections">
-        <a href="about.html">
-          <span>01</span>
-          <strong>About</strong>
-          <em>Bio, background, contact, and links.</em>
-        </a>
-        <a href="research.html">
-          <span>02</span>
-          <strong>Research</strong>
-          <em>Interests, questions, and directions.</em>
-        </a>
-        <a href="publications.html">
-          <span>03</span>
-          <strong>Publications</strong>
-          <em>Papers, books, essays, and reports.</em>
-        </a>
-        <a href="portfolio.html">
-          <span>04</span>
-          <strong>Portfolio</strong>
-          <em>Design, planning, mapping, and visual work.</em>
-        </a>
-      </div>
+      <article class="academic-intro">
+        <h2>About</h2>
+        <p class="intro-lead">This homepage is a concise record of my academic background, research interests, publications, and selected design-based work.</p>
+        <p>Write a short biographical introduction here. This should read like the first paragraph of an academic profile: clear, text-led, and specific. It can explain your architectural and planning background, the questions you are currently developing, and the kinds of work collected on this site.</p>
+        <p>The design of this page is intentionally quiet. It should make room for writing, CV materials, publications, and portfolio evidence as the site gradually becomes more complete.</p>
+
+        <div class="academic-columns">
+          <section>
+            <h3>Research Interests</h3>
+            <ul>
+              <li>Spatial analysis and representation</li>
+              <li>Design research methods</li>
+              <li>Urban systems and planning knowledge</li>
+              <li>Visual research and communication</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Site Index</h3>
+            <ul class="link-list compact-links">
+              <li><a href="research.html">Research</a></li>
+              <li><a href="publications.html">Publications</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="archive.html">Archive</a></li>
+            </ul>
+          </section>
+        </div>
+      </article>
     </section>
 
-    <section class="section home-notes">
+    <section class="home-supplement" aria-label="Selected homepage notes">
       <div>
-        <p class="section-kicker">Selected Highlights</p>
-        <h2>Essential profile information first; deeper materials after that.</h2>
+        <h2>Selected Highlights</h2>
+        <p>Add a small number of recent updates, featured publications, exhibitions, projects, or writing here once the main content has been filled in.</p>
       </div>
-      <div class="prose">
-        <p>Use this section for a small number of recent updates, featured publications, or selected projects once the core profile information has been filled in.</p>
+      <div>
+        <h2>Materials</h2>
+        <p>CV, portfolio PDF, publication links, and project images can be attached gradually. The first priority is to make the written profile accurate and readable.</p>
       </div>
     </section>
   </main>
@@ -118,6 +109,6 @@
     <p>&copy; <span id="year"></span> Your Name</p>
     <p><a href="mailto:your.email@example.com">your.email@example.com</a></p>
   </footer>
-  <script src="script.js?v=20260525-home"></script>
+  <script src="script.js?v=20260525-academic"></script>
 </body>
 </html>
