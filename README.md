@@ -30,7 +30,7 @@ Then visit `http://localhost:8080`.
 
 ## Where to put files
 
-- Put your CV PDF in `assets/cv.pdf`.
+- Keep CV files out of the public site until you are ready to publish one.
 - Put profile images in `assets/profile/`.
 - Put research figures in `assets/research/`.
 - Put publication figures in `assets/publications/`.
@@ -38,7 +38,7 @@ Then visit `http://localhost:8080`.
 - Put portfolio images in `assets/portfolio/`.
 - Put archive images in `assets/archive/`.
 - See `assets/IMAGE_GUIDE.md` before replacing image placeholders.
-- Replace placeholder text page by page.
+- Replace or refine page text as your academic profile changes.
 
 ## Public hosting options
 
