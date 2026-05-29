@@ -12,6 +12,8 @@ Use these folders for page images:
 Recommended image behavior:
 
 - Keep homepage images small and personal; use one profile image first.
+- Use `photo.html` to crop a large portrait to the homepage's 4:5 portrait frame.
+- Save the exported portrait as `assets/profile/profile.jpg` when it is ready to publish.
 - Use captions for research, publication, project, and portfolio images.
 - Prefer original images, self-made diagrams, or properly licensed images.
 - Keep filenames simple, for example `profile.jpg`, `research-framework-01.jpg`, or `project-title-map.jpg`.

@@ -17,6 +17,7 @@ https://joeyhu-coding.github.io/
 - `projects.html` - Projects
 - `portfolio.html` - Portfolio
 - `archive.html` - Archive
+- `photo.html` - local profile photo cropper
 
 ## How to preview locally
 
@@ -32,6 +33,7 @@ Then visit `http://localhost:8080`.
 
 - Keep CV files out of the public site until you are ready to publish one.
 - Put profile images in `assets/profile/`.
+- Use `photo.html` to crop a large portrait to the homepage frame, then export `profile.jpg`.
 - Put research figures in `assets/research/`.
 - Put publication figures in `assets/publications/`.
 - Put project images in `assets/projects/`.

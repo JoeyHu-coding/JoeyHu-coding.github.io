@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile Photo Tool | Jinyu Hu</title>
+  <meta name="description" content="Local profile photo cropper for the personal academic website.">
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem("theme");
+        document.documentElement.dataset.theme = savedTheme || "dark";
+      } catch (error) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css?v=20260529-photo">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Home"><span class="brand-mark">JH</span><span class="brand-text">Jinyu Hu</span></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="research.html">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="projects.html">Projects</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="archive.html">Archive</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="true">
+      <span class="theme-toggle__label">Theme</span>
+      <span class="theme-toggle__state">Dark</span>
+    </button>
+  </header>
+
+  <main class="page-shell photo-tool-shell">
+    <section class="page-title">
+      <p class="eyebrow">Profile Photo</p>
+      <h1>Crop a portrait for the homepage frame.</h1>
+    </section>
+
+    <section class="photo-tool" data-photo-tool aria-label="Profile photo cropper">
+      <article class="crop-panel">
+        <div class="crop-stage" data-crop-stage>
+          <canvas class="crop-canvas" width="720" height="900" data-crop-canvas aria-label="Profile photo crop area"></canvas>
+          <div class="crop-grid" aria-hidden="true"></div>
+          <div class="crop-empty" data-crop-empty>Upload Photo</div>
+        </div>
+        <p class="crop-status" data-crop-status>No photo selected.</p>
+      </article>
+
+      <aside class="crop-controls">
+        <label class="file-button button primary">
+          <span>Upload Photo</span>
+          <input type="file" accept="image/*" data-photo-input>
+        </label>
+
+        <label class="crop-control">
+          <span>Zoom</span>
+          <input type="range" min="1" max="3" value="1" step="0.01" data-crop-zoom disabled>
+        </label>
+
+        <div class="crop-actions" aria-label="Photo crop actions">
+          <button class="button" type="button" data-crop-center disabled>Center</button>
+          <button class="button" type="button" data-crop-save disabled>Save Preview</button>
+          <button class="button" type="button" data-crop-download disabled>Download profile.jpg</button>
+          <button class="button" type="button" data-crop-clear>Clear Preview</button>
+        </div>
+
+        <figure class="media-frame portrait-frame crop-preview-frame">
+          <img data-crop-preview alt="Cropped profile preview" hidden>
+          <div class="media-placeholder" data-crop-preview-placeholder>Homepage Preview</div>
+        </figure>
+
+        <div class="crop-note">
+          <h2>Publishing</h2>
+          <p>The saved preview stays in this browser. To publish the photo for visitors, download <code>profile.jpg</code>, place it in <code>assets/profile/</code>, then commit and push the site.</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Jinyu Hu</p>
+    <p><a href="mailto:hujy24@m.fudan.edu.cn">hujy24@m.fudan.edu.cn</a></p>
+  </footer>
+  <script src="script.js?v=20260529-photo"></script>
+</body>
+</html>
