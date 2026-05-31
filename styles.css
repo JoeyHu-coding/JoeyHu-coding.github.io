@@ -732,32 +732,48 @@ html[data-theme="light"] .button:hover {
 
 .pub-group {
   display: grid;
-  grid-template-columns: minmax(220px, 0.38fr) minmax(0, 1fr);
-  gap: clamp(1.5rem, 4vw, 4rem);
-  padding: 2rem 0;
+  gap: 0;
+  padding: clamp(1.4rem, 3vw, 2.2rem) 0;
   border-top: 1px solid var(--line);
 }
 
 .pub-group h2 {
+  margin-bottom: 1rem;
   font-size: clamp(1.5rem, 2.5vw, 2.4rem);
 }
 
 .publication-item {
-  padding: 1.2rem;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  padding: 1rem 0;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid color-mix(in srgb, var(--line) 72%, transparent);
+  box-shadow: none;
 }
 
 .publication-item h3 {
-  margin-top: 0.45rem;
+  max-width: 980px;
+  margin-top: 0.3rem;
+  font-size: clamp(1.1rem, 1.7vw, 1.42rem);
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+}
+
+.publication-item p {
+  max-width: 980px;
+  margin: 0.45rem 0 0;
+  line-height: 1.58;
+}
+
+.publication-note {
+  padding-top: 0;
+  border-top: 0;
 }
 
 .publication-links {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
-  margin-top: 0.85rem;
+  margin-top: 0.65rem;
 }
 
 .publication-links a {
@@ -1979,21 +1995,6 @@ html[data-theme="dark"] body::after {
   border-top: 0;
 }
 
-.publication-with-media {
-  display: grid;
-  grid-template-columns: minmax(110px, 0.28fr) minmax(0, 0.72fr);
-  gap: 1rem;
-  align-items: start;
-}
-
-.publication-thumb {
-  min-height: 7.5rem;
-}
-
-.publication-thumb figcaption {
-  display: none;
-}
-
 .project-inline-media {
   min-height: clamp(11rem, 24vw, 17rem);
   margin: 0.9rem 0 1rem;
@@ -2022,7 +2023,6 @@ html[data-theme="dark"] body::after {
 }
 
 @media (max-width: 760px) {
-  .publication-with-media,
   .archive-media-grid {
     grid-template-columns: 1fr;
   }
@@ -2030,10 +2030,6 @@ html[data-theme="dark"] body::after {
   .skill-grid,
   .research-detail {
     grid-template-columns: 1fr;
-  }
-
-  .publication-thumb {
-    min-height: 11rem;
   }
 
   .portrait-frame {
