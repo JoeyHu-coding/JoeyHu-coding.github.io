@@ -1835,6 +1835,7 @@ html[data-theme="dark"] body::after {
 /* Projects page and final edge polish. */
 :root {
   --measure: 68ch;
+  --profile-media-width: 10.85rem;
 }
 
 .site-header {
@@ -2017,7 +2018,7 @@ html[data-theme="dark"] body::after {
 }
 
 .portrait-frame {
-  width: min(100%, 13.5rem);
+  width: min(100%, var(--profile-media-width));
   aspect-ratio: 4 / 5;
   margin: 1rem 0 1.05rem;
 }
@@ -2173,8 +2174,8 @@ html[data-theme="dark"] body::after {
     grid-template-columns: 1fr;
   }
 
-  .portrait-frame {
-    width: min(100%, 16rem);
+  :root {
+    --profile-media-width: 16rem;
   }
 }
 
@@ -2211,7 +2212,6 @@ html[data-theme="dark"] body::after {
 }
 
 .portrait-frame {
-  width: min(100%, 10.85rem);
   margin: 0.72rem 0 0.78rem;
 }
 
@@ -2296,8 +2296,11 @@ html[data-theme="dark"] body::after {
     font-size: clamp(1.78rem, 2.45vw, 2.28rem);
   }
 
+  :root {
+    --profile-media-width: 9.6rem;
+  }
+
   .portrait-frame {
-    width: min(100%, 9.6rem);
     margin-block: 0.55rem 0.62rem;
   }
 
@@ -2358,8 +2361,11 @@ html[data-theme="dark"] body::after {
     font-size: clamp(1.68rem, 2.25vw, 2.12rem);
   }
 
+  :root {
+    --profile-media-width: 8.9rem;
+  }
+
   .portrait-frame {
-    width: min(100%, 8.9rem);
     margin-block: 0.45rem 0.52rem;
   }
 
@@ -2415,8 +2421,8 @@ html[data-theme="dark"] body::after {
     position: static;
   }
 
-  .portrait-frame {
-    width: min(100%, 12.5rem);
+  :root {
+    --profile-media-width: 12.5rem;
   }
 }
 
@@ -2441,8 +2447,8 @@ html[data-theme="dark"] body::after {
     flex: 0 0 auto;
   }
 
-  .portrait-frame {
-    width: min(100%, 11.25rem);
+  :root {
+    --profile-media-width: 11.25rem;
   }
 }
 
@@ -2476,7 +2482,7 @@ html[data-theme="dark"] body::after {
 .profile-link-panel {
   display: grid;
   gap: 0.58rem;
-  width: min(100%, 13.5rem);
+  width: min(100%, var(--profile-media-width));
   margin: 0.15rem 0 0.88rem;
 }
 
