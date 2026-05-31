@@ -2553,8 +2553,9 @@ html[data-theme="dark"] body::after {
   max-width: 100%;
   color: var(--muted);
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: clamp(0.66rem, 1.6vw, 0.72rem);
   letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 .profile-email-link svg {
@@ -2565,7 +2566,8 @@ html[data-theme="dark"] body::after {
 }
 
 .profile-email-link span {
-  overflow-wrap: anywhere;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .photo-tool-shell {
