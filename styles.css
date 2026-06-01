@@ -49,6 +49,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
   min-height: 100vh;
   color: var(--ink);
   background:
@@ -179,6 +180,7 @@ a:hover {
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.72rem 1.1rem;
+  min-width: 0;
 }
 
 .nav a {
@@ -2903,5 +2905,278 @@ html[data-theme="dark"] body::after {
 
   .crop-actions {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Portfolio page: web-first presentation of design boards and spatial visual work. */
+.portfolio-page {
+  width: min(1140px, calc(100% - 2.25rem));
+  overflow-x: hidden;
+}
+
+.portfolio-title {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.portfolio-lead {
+  max-width: 780px;
+  margin: 0;
+  color: color-mix(in srgb, var(--muted) 92%, var(--ink));
+  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  line-height: 1.72;
+  overflow-wrap: anywhere;
+}
+
+.portfolio-overview {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: clamp(1.35rem, 3vw, 2rem) 0 0;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.portfolio-overview div {
+  min-height: 7rem;
+  padding: 1rem;
+  background: color-mix(in srgb, var(--panel) 80%, transparent);
+}
+
+.portfolio-overview span {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--accent-2);
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.35rem);
+  line-height: 1;
+}
+
+.portfolio-overview p {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.portfolio-projects {
+  display: grid;
+  gap: clamp(1.35rem, 3vw, 2rem);
+  padding: clamp(1.8rem, 4vw, 3rem) 0;
+  border-top: 1px solid var(--line);
+}
+
+.portfolio-project {
+  display: grid;
+  grid-template-columns: minmax(270px, 0.38fr) minmax(0, 0.62fr);
+  gap: clamp(1rem, 2.6vw, 1.8rem);
+  align-items: start;
+  padding: clamp(1rem, 2.5vw, 1.45rem);
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 78%, transparent);
+}
+
+.portfolio-project--featured {
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-wash) 42%, transparent), transparent 42%),
+    color-mix(in srgb, var(--panel) 80%, transparent);
+}
+
+.portfolio-project__text {
+  min-width: 0;
+}
+
+.portfolio-project__text h2 {
+  margin: 0.45rem 0 0;
+  font-size: clamp(1.7rem, 3.1vw, 2.55rem);
+  letter-spacing: -0.035em;
+}
+
+.portfolio-project__subtitle {
+  margin: 0.45rem 0 1rem;
+  color: var(--accent-2);
+  font-family: var(--serif);
+  font-size: clamp(1.02rem, 1.35vw, 1.18rem);
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.portfolio-project__text > p:not(.pub-meta):not(.portfolio-project__subtitle) {
+  max-width: 36rem;
+  margin: 1rem 0 0;
+  color: color-mix(in srgb, var(--muted) 92%, var(--ink));
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.portfolio-facts {
+  display: grid;
+  gap: 0.58rem;
+  margin: 1.25rem 0 0;
+}
+
+.portfolio-facts div {
+  display: grid;
+  grid-template-columns: minmax(4.5rem, 0.24fr) minmax(0, 0.76fr);
+  gap: 0.8rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid color-mix(in srgb, var(--line) 76%, transparent);
+}
+
+.portfolio-facts dt {
+  color: var(--accent-2);
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.105em;
+  text-transform: uppercase;
+}
+
+.portfolio-facts dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.portfolio-project__media {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.portfolio-hero-image,
+.portfolio-gallery figure,
+.portfolio-other__grid figure {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--line) 86%, transparent);
+  background: #fff;
+}
+
+.portfolio-hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.portfolio-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.portfolio-gallery figure {
+  aspect-ratio: 4 / 5;
+}
+
+.portfolio-gallery img,
+.portfolio-other__grid img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portfolio-other {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.32fr) minmax(0, 0.68fr);
+  gap: clamp(1.3rem, 4vw, 3rem);
+  padding: clamp(1.8rem, 4vw, 3rem) 0;
+  border-top: 1px solid var(--line);
+}
+
+.portfolio-other__heading h2 {
+  max-width: 420px;
+  font-size: clamp(1.45rem, 2.5vw, 2.05rem);
+  letter-spacing: -0.025em;
+}
+
+.portfolio-other__heading p:not(.eyebrow) {
+  max-width: 34rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.portfolio-other__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.portfolio-other__grid figure {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  min-height: 19rem;
+}
+
+.portfolio-other__grid figcaption {
+  padding: 0.62rem 0.7rem;
+  color: var(--muted);
+  border-top: 1px solid color-mix(in srgb, var(--line) 76%, transparent);
+  background: color-mix(in srgb, var(--paper) 58%, transparent);
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.portfolio-note {
+  padding: 1.1rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.portfolio-note p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--muted-2);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+@media (max-width: 980px) {
+  .portfolio-overview,
+  .portfolio-other__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .portfolio-project,
+  .portfolio-other {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-project__text > p:not(.pub-meta):not(.portfolio-project__subtitle) {
+    max-width: 48rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolio-page {
+    width: min(100% - 1.1rem, 1140px);
+  }
+
+  .portfolio-overview,
+  .portfolio-gallery,
+  .portfolio-other__grid,
+  .portfolio-facts div {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-gallery figure {
+    aspect-ratio: auto;
+  }
+
+  .portfolio-gallery img {
+    height: auto;
+    object-fit: contain;
+  }
+
+  .portfolio-other__grid figure {
+    min-height: 0;
   }
 }
