@@ -395,8 +395,19 @@ function initPortfolioViewers() {
 
     let current = Math.max(0, slides.findIndex((slide) => slide.classList.contains("is-active")));
 
+    function loadSlideImage(slide) {
+      const image = slide?.querySelector("img[data-src]");
+      if (image) {
+        image.src = image.dataset.src;
+        image.removeAttribute("data-src");
+      }
+    }
+
     function setSlide(index) {
       current = (index + slides.length) % slides.length;
+      loadSlideImage(slides[current]);
+      loadSlideImage(slides[(current + 1) % slides.length]);
+      loadSlideImage(slides[(current - 1 + slides.length) % slides.length]);
 
       slides.forEach((slide, slideIndex) => {
         const isActive = slideIndex === current;
