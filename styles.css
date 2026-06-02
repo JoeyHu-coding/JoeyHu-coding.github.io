@@ -3364,6 +3364,7 @@ html[data-theme="dark"] body::after {
 }
 
 .portfolio-slide {
+  position: relative;
   margin: 0;
   min-width: 0;
 }
@@ -3470,7 +3471,7 @@ html[data-theme="dark"] body::after {
   }
 }
 
-/* Portfolio A3 spread reader. */
+/* Portfolio spread readers. */
 .portfolio-page--reader {
   width: min(1480px, calc(100% - 2.25rem));
 }
@@ -3493,6 +3494,23 @@ html[data-theme="dark"] body::after {
   gap: clamp(0.85rem, 1.8vw, 1.15rem);
 }
 
+.portfolio-workbench--readers {
+  display: grid;
+  gap: clamp(2.3rem, 5vw, 4.3rem);
+  padding: clamp(1.25rem, 3.5vw, 2.4rem) 0 0;
+  border-top: 0;
+}
+
+.portfolio-project-reader {
+  display: grid;
+  gap: clamp(0.8rem, 1.6vw, 1.05rem);
+  padding: clamp(0.85rem, 1.7vw, 1.18rem);
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-wash) 24%, transparent), transparent 46%),
+    color-mix(in srgb, var(--panel) 74%, transparent);
+}
+
 .portfolio-reader-info {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(24rem, 0.72fr);
@@ -3503,6 +3521,12 @@ html[data-theme="dark"] body::after {
   background:
     linear-gradient(135deg, color-mix(in srgb, var(--accent-wash) 28%, transparent), transparent 48%),
     color-mix(in srgb, var(--panel) 80%, transparent);
+}
+
+.portfolio-reader-info--project {
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 
 .portfolio-reader-info__text {
@@ -3584,6 +3608,7 @@ html[data-theme="dark"] body::after {
 }
 
 .portfolio-slides--spreads .portfolio-slide a {
+  position: relative;
   background: #f7f7f5;
 }
 
@@ -3594,7 +3619,18 @@ html[data-theme="dark"] body::after {
 }
 
 .portfolio-slides--spreads .portfolio-slide figcaption {
-  padding: 0.72rem 0.95rem;
+  position: absolute;
+  left: clamp(0.65rem, 1.4vw, 1rem);
+  bottom: clamp(0.65rem, 1.4vw, 1rem);
+  z-index: 1;
+  max-width: min(38rem, calc(100% - 2rem));
+  padding: 0.5rem 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(11, 12, 14, 0.68);
+  color: #fff;
+  font-size: clamp(0.68rem, 1.05vw, 0.82rem);
+  line-height: 1.35;
+  backdrop-filter: blur(10px);
 }
 
 .portfolio-side-nav {
@@ -3693,6 +3729,10 @@ html[data-theme="dark"] body::after {
     padding: 0.82rem;
   }
 
+  .portfolio-reader-info--project {
+    padding: 0;
+  }
+
   .portfolio-reader-info__text h2 {
     font-size: 1.36rem;
   }
@@ -3726,6 +3766,23 @@ html[data-theme="dark"] body::after {
 
   .portfolio-side-nav--next {
     right: 0.2rem;
+  }
+
+  .portfolio-workbench--readers {
+    gap: 1.35rem;
+    padding-top: 0.95rem;
+  }
+
+  .portfolio-project-reader {
+    padding: 0.78rem;
+  }
+
+  .portfolio-slides--spreads .portfolio-slide figcaption {
+    left: 0.5rem;
+    bottom: 0.5rem;
+    max-width: calc(100% - 1rem);
+    padding: 0.38rem 0.48rem;
+    font-size: 0.64rem;
   }
 }
 
