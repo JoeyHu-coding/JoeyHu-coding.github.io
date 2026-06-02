@@ -15,7 +15,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=portfolio-20260602">
+  <link rel="stylesheet" href="styles.css?v=portfolio-boards-final-20260602">
 </head>
 <body>
   <header class="site-header">
@@ -35,11 +35,11 @@
     </button>
   </header>
 
-  <main class="page-shell portfolio-page">
+  <main class="page-shell portfolio-page portfolio-page--viewer">
     <section class="page-title portfolio-title">
       <p class="eyebrow">Design Portfolio</p>
       <h1>Spatial design, ecological planning, mapping, and visual environmental analysis.</h1>
-      <p class="portfolio-lead">This page curates selected landscape architecture and visual research work from my design training. The portfolio is presented as supporting evidence for my spatial representation, ecological planning, site analysis, and environmental visualization skills.</p>
+      <p class="portfolio-lead">This page reorganizes selected landscape architecture work into web-based project viewers. Each project keeps a concise information frame at the top and presents complete boards below, so the design pages can be read as boards rather than cropped fragments.</p>
     </section>
 
     <section class="portfolio-overview" aria-label="Portfolio overview">
@@ -48,12 +48,12 @@
         <p>featured design works</p>
       </div>
       <div>
-        <span>GIS</span>
-        <p>spatial analysis and mapping</p>
+        <span>A3</span>
+        <p>complete board viewing</p>
       </div>
       <div>
-        <span>LA</span>
-        <p>landscape architecture training</p>
+        <span>GIS</span>
+        <p>mapping and spatial analysis</p>
       </div>
       <div>
         <span>VIS</span>
@@ -61,13 +61,15 @@
       </div>
     </section>
 
-    <section class="portfolio-projects" aria-label="Featured portfolio projects">
-      <article class="portfolio-project portfolio-project--featured">
-        <div class="portfolio-project__text">
-          <p class="pub-meta">01 - Featured Work - Course Studio</p>
-          <h2>Shanshui Stitching</h2>
-          <p class="portfolio-project__subtitle">山水缝合 - Xuanwu Lake-Zijin Mountain Connection Belt Planning and Design</p>
-          <p>The project explores how a fragmented urban interface between Xuanwu Lake and Zijin Mountain can be repaired through ecological corridors, public-space stitching, pedestrian experience design, and landscape infrastructure.</p>
+    <section class="portfolio-workbench" aria-label="Featured portfolio projects">
+      <article class="portfolio-project portfolio-project--featured" data-portfolio-viewer>
+        <header class="portfolio-info">
+          <div class="portfolio-info__main">
+            <p class="pub-meta">01 - Featured Work - Course Studio</p>
+            <h2>Shanshui Stitching</h2>
+            <p class="portfolio-project__subtitle">&#23665;&#27700;&#32541;&#21512; - Xuanwu Lake-Zijin Mountain Connection Belt Planning and Design</p>
+            <p>The project repairs a fragmented interface between Xuanwu Lake and Zijin Mountain through ecological corridors, public-space stitching, pedestrian experience design, and landscape infrastructure.</p>
+          </div>
           <dl class="portfolio-facts">
             <div>
               <dt>Time</dt>
@@ -86,25 +88,60 @@
               <dd>Group work; responsible for master planning, GIS analysis, overall design coordination, rendering, and subarea design.</dd>
             </div>
           </dl>
-        </div>
-        <div class="portfolio-project__media">
-          <figure class="portfolio-hero-image">
-            <img src="assets/portfolio/shanshui-masterplan.jpg" alt="Master plan for Shanshui Stitching landscape design">
-          </figure>
-          <div class="portfolio-gallery portfolio-gallery--three">
-            <figure><img src="assets/portfolio/shanshui-context.jpg" alt="Context analysis for Shanshui Stitching"></figure>
-            <figure><img src="assets/portfolio/shanshui-rendering.jpg" alt="Perspective rendering for Shanshui Stitching"></figure>
-            <figure><img src="assets/portfolio/shanshui-cover.jpg" alt="Cover board for Shanshui Stitching"></figure>
+        </header>
+
+        <section class="portfolio-board-frame" aria-label="Shanshui Stitching boards">
+          <div class="portfolio-board-toolbar">
+            <div>
+              <span class="portfolio-board-count" data-slide-counter>1 / 5</span>
+              <strong data-slide-title>Overview and site analysis</strong>
+            </div>
+            <div class="portfolio-board-actions">
+              <a class="portfolio-board-open" data-slide-open href="assets/portfolio/shanshui-board-01.jpg" target="_blank" rel="noopener">Open</a>
+              <button class="portfolio-board-button" type="button" data-slide-prev aria-label="Previous board">&lt;</button>
+              <button class="portfolio-board-button" type="button" data-slide-next aria-label="Next board">&gt;</button>
+            </div>
           </div>
-        </div>
+          <div class="portfolio-slides">
+            <figure class="portfolio-slide is-active" data-slide-title="Overview and site analysis">
+              <a href="assets/portfolio/shanshui-board-01.jpg" target="_blank" rel="noopener"><img src="assets/portfolio/shanshui-board-01.jpg" alt="Shanshui Stitching overview and site analysis board"></a>
+              <figcaption>Overview board with location analysis, site resources, and user-population analysis.</figcaption>
+            </figure>
+            <figure class="portfolio-slide" data-slide-title="Design analysis and strategy" hidden>
+              <a href="assets/portfolio/shanshui-board-02.jpg" target="_blank" rel="noopener"><img src="assets/portfolio/shanshui-board-02.jpg" alt="Shanshui Stitching design analysis and strategy board"></a>
+              <figcaption>Site analysis, design logic, circulation, visual structure, plant level, and revetment strategies.</figcaption>
+            </figure>
+            <figure class="portfolio-slide" data-slide-title="Master plan and detail systems" hidden>
+              <a href="assets/portfolio/shanshui-board-03.jpg" target="_blank" rel="noopener"><img src="assets/portfolio/shanshui-board-03.jpg" alt="Shanshui Stitching master plan and design analysis board"></a>
+              <figcaption>Master plan and detailed design systems for the lake-mountain connection belt.</figcaption>
+            </figure>
+            <figure class="portfolio-slide" data-slide-title="Sections and experience nodes" hidden>
+              <a href="assets/portfolio/shanshui-board-04.jpg" target="_blank" rel="noopener"><img src="assets/portfolio/shanshui-board-04.jpg" alt="Shanshui Stitching sections and experiential node board"></a>
+              <figcaption>Sections, planting structure, spatial nodes, ecological interfaces, and experiential design.</figcaption>
+            </figure>
+            <figure class="portfolio-slide" data-slide-title="Perspective renderings" hidden>
+              <a href="assets/portfolio/shanshui-board-05.jpg" target="_blank" rel="noopener"><img src="assets/portfolio/shanshui-board-05.jpg" alt="Shanshui Stitching perspective rendering board"></a>
+              <figcaption>Final visual renderings showing proposed public-space and waterfront scenes.</figcaption>
+            </figure>
+          </div>
+          <div class="portfolio-slide-tabs" role="tablist" aria-label="Shanshui Stitching board navigation">
+            <button type="button" class="is-active" data-slide-to="0">01</button>
+            <button type="button" data-slide-to="1">02</button>
+            <button type="button" data-slide-to="2">03</button>
+            <button type="button" data-slide-to="3">04</button>
+            <button type="button" data-slide-to="4">05</button>
+          </div>
+        </section>
       </article>
 
-      <article class="portfolio-project">
-        <div class="portfolio-project__text">
-          <p class="pub-meta">02 - Urban Wetland Renewal - Course Studio</p>
-          <h2>Blue-Green Reconstruction</h2>
-          <p class="portfolio-project__subtitle">蓝绿重构 - Urban Wetland Park Renewal Based on Environmental Experience and Nature Education</p>
-          <p>This studio work focuses on wetland renewal in a dense urban district, using blue-green structure, environmental experience, and nature-education programming to reshape ecological accessibility and public engagement.</p>
+      <article class="portfolio-project" data-portfolio-viewer>
+        <header class="portfolio-info">
+          <div class="portfolio-info__main">
+            <p class="pub-meta">02 - Urban Wetland Renewal - Course Studio</p>
+            <h2>Blue-Green Reconstruction</h2>
+            <p class="portfolio-project__subtitle">&#34013;&#32511;&#37325;&#26500; - Urban Wetland Park Renewal Based on Environmental Experience and Nature Education</p>
+            <p>This studio work focuses on wetland renewal in a dense urban district. The design combines blue-green structure, environmental experience, nature education, and activity programming to improve ecological accessibility and public engagement.</p>
+          </div>
           <dl class="portfolio-facts">
             <div>
               <dt>Time</dt>
@@ -123,25 +160,50 @@
               <dd>Group work; responsible for early-stage analysis and master plan development.</dd>
             </div>
           </dl>
-        </div>
-        <div class="portfolio-project__media">
-          <figure class="portfolio-hero-image">
-            <img src="assets/portfolio/bluegreen-framework.jpg" alt="Blue-Green Reconstruction strategy and framework board">
-          </figure>
-          <div class="portfolio-gallery portfolio-gallery--three">
-            <figure><img src="assets/portfolio/bluegreen-rendering.jpg" alt="Wetland park rendering for Blue-Green Reconstruction"></figure>
-            <figure><img src="assets/portfolio/bluegreen-strategy.jpg" alt="Layered strategy diagram for Blue-Green Reconstruction"></figure>
-            <figure><img src="assets/portfolio/bluegreen-cover.jpg" alt="Cover board for Blue-Green Reconstruction"></figure>
+        </header>
+
+        <section class="portfolio-board-frame" aria-label="Blue-Green Reconstruction boards">
+          <div class="portfolio-board-toolbar">
+            <div>
+              <span class="portfolio-board-count" data-slide-counter>1 / 3</span>
+              <strong data-slide-title>Project positioning</strong>
+            </div>
+            <div class="portfolio-board-actions">
+              <a class="portfolio-board-open" data-slide-open href="assets/portfolio/bluegreen-board-01.jpg" target="_blank" rel="noopener">Open</a>
+              <button class="portfolio-board-button" type="button" data-slide-prev aria-label="Previous board">&lt;</button>
+              <button class="portfolio-board-button" type="button" data-slide-next aria-label="Next board">&gt;</button>
+            </div>
           </div>
-        </div>
+          <div class="portfolio-slides">
+            <figure class="portfolio-slide is-active" data-slide-title="Project positioning">
+              <a href="assets/portfolio/bluegreen-board-01.jpg" target="_blank" rel="noopener"><img src="assets/portfolio/bluegreen-board-01.jpg" alt="Blue-Green Reconstruction project positioning board"></a>
+              <figcaption>Project positioning, site location, and conceptual framing for the wetland park renewal.</figcaption>
+            </figure>
+            <figure class="portfolio-slide" data-slide-title="Analysis and system strategy" hidden>
+              <a href="assets/portfolio/bluegreen-board-02.jpg" target="_blank" rel="noopener"><img src="assets/portfolio/bluegreen-board-02.jpg" alt="Blue-Green Reconstruction analysis and system strategy board"></a>
+              <figcaption>Hydrology, human activity, ecological organization, and design strategy diagrams.</figcaption>
+            </figure>
+            <figure class="portfolio-slide" data-slide-title="Spatial scenes and education system" hidden>
+              <a href="assets/portfolio/bluegreen-board-03.jpg" target="_blank" rel="noopener"><img src="assets/portfolio/bluegreen-board-03.jpg" alt="Blue-Green Reconstruction rendering and education system board"></a>
+              <figcaption>Rendered scenes, wetland experience sequences, and nature-education programming.</figcaption>
+            </figure>
+          </div>
+          <div class="portfolio-slide-tabs" role="tablist" aria-label="Blue-Green Reconstruction board navigation">
+            <button type="button" class="is-active" data-slide-to="0">01</button>
+            <button type="button" data-slide-to="1">02</button>
+            <button type="button" data-slide-to="2">03</button>
+          </div>
+        </section>
       </article>
 
-      <article class="portfolio-project">
-        <div class="portfolio-project__text">
-          <p class="pub-meta">03 - Individual Design - Campus Architecture</p>
-          <h2>Wings of Yanji</h2>
-          <p class="portfolio-project__subtitle">燕几之翼 - Campus Leisure Station Design</p>
-          <p>An individual design project for a compact campus leisure station, combining landscape setting, architectural form, circulation, lightweight structure, and interior-exterior experience.</p>
+      <article class="portfolio-project" data-portfolio-viewer>
+        <header class="portfolio-info">
+          <div class="portfolio-info__main">
+            <p class="pub-meta">03 - Individual Design - Campus Architecture</p>
+            <h2>Wings of Yanji</h2>
+            <p class="portfolio-project__subtitle">&#29141;&#20960;&#20043;&#32764; - Campus Leisure Station Design</p>
+            <p>An individual design project for a compact campus leisure station, combining landscape setting, architectural form, circulation, lightweight structure, and interior-exterior experience.</p>
+          </div>
           <dl class="portfolio-facts">
             <div>
               <dt>Time</dt>
@@ -160,44 +222,87 @@
               <dd>Individual work; responsible for concept, modeling, drawings, renderings, and presentation boards.</dd>
             </div>
           </dl>
-        </div>
-        <div class="portfolio-project__media">
-          <figure class="portfolio-hero-image">
-            <img src="assets/portfolio/yanji-rendering.jpg" alt="Exterior rendering for Wings of Yanji campus leisure station">
-          </figure>
-          <div class="portfolio-gallery portfolio-gallery--three">
-            <figure><img src="assets/portfolio/yanji-structure.jpg" alt="Structure and landscape analysis for Wings of Yanji"></figure>
-            <figure><img src="assets/portfolio/yanji-interior.jpg" alt="Interior and elevation renderings for Wings of Yanji"></figure>
-            <figure><img src="assets/portfolio/yanji-cover.jpg" alt="Cover board for Wings of Yanji"></figure>
+        </header>
+
+        <section class="portfolio-board-frame" aria-label="Wings of Yanji boards">
+          <div class="portfolio-board-toolbar">
+            <div>
+              <span class="portfolio-board-count" data-slide-counter>1 / 3</span>
+              <strong data-slide-title>Plan and structure</strong>
+            </div>
+            <div class="portfolio-board-actions">
+              <a class="portfolio-board-open" data-slide-open href="assets/portfolio/yanji-board-01.jpg" target="_blank" rel="noopener">Open</a>
+              <button class="portfolio-board-button" type="button" data-slide-prev aria-label="Previous board">&lt;</button>
+              <button class="portfolio-board-button" type="button" data-slide-next aria-label="Next board">&gt;</button>
+            </div>
           </div>
-        </div>
+          <div class="portfolio-slides">
+            <figure class="portfolio-slide is-active" data-slide-title="Plan and structure">
+              <a href="assets/portfolio/yanji-board-01.jpg" target="_blank" rel="noopener"><img src="assets/portfolio/yanji-board-01.jpg" alt="Wings of Yanji plan and structure board"></a>
+              <figcaption>Plan, structural logic, climatic analysis, and site-design systems.</figcaption>
+            </figure>
+            <figure class="portfolio-slide" data-slide-title="Exterior and concept diagrams" hidden>
+              <a href="assets/portfolio/yanji-board-02.jpg" target="_blank" rel="noopener"><img src="assets/portfolio/yanji-board-02.jpg" alt="Wings of Yanji exterior rendering and concept board"></a>
+              <figcaption>Exterior rendering, concept formation, structural analysis, and spatial-use diagrams.</figcaption>
+            </figure>
+            <figure class="portfolio-slide" data-slide-title="Renderings and interior views" hidden>
+              <a href="assets/portfolio/yanji-board-03.jpg" target="_blank" rel="noopener"><img src="assets/portfolio/yanji-board-03.jpg" alt="Wings of Yanji rendering and interior view board"></a>
+              <figcaption>Interior, elevation, and atmosphere renderings for the campus leisure station.</figcaption>
+            </figure>
+          </div>
+          <div class="portfolio-slide-tabs" role="tablist" aria-label="Wings of Yanji board navigation">
+            <button type="button" class="is-active" data-slide-to="0">01</button>
+            <button type="button" data-slide-to="1">02</button>
+            <button type="button" data-slide-to="2">03</button>
+          </div>
+        </section>
       </article>
     </section>
 
-    <section class="portfolio-other" aria-labelledby="portfolio-other-title">
-      <div class="portfolio-other__heading">
-        <p class="eyebrow">Other Work</p>
-        <h2 id="portfolio-other-title">Models, quick design, boards, and visual studies.</h2>
-        <p>Selected supplementary work is kept compact so the page stays focused on the strongest design and spatial-analysis projects.</p>
-      </div>
-      <div class="portfolio-other__grid">
-        <figure>
-          <img src="assets/portfolio/other-model.jpg" alt="Physical model and site-design work">
-          <figcaption>Model and spatial composition</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/portfolio/other-quick-design.jpg" alt="Quick design board with hand drawings">
-          <figcaption>Quick design and hand drawing</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/portfolio/other-board-set.jpg" alt="Collection of additional course-design boards">
-          <figcaption>Course design board set</figcaption>
-        </figure>
-      </div>
+    <section class="portfolio-other" aria-labelledby="portfolio-other-title" data-portfolio-viewer>
+      <header class="portfolio-info portfolio-info--other">
+        <div class="portfolio-info__main">
+          <p class="eyebrow">Other Work</p>
+          <h2 id="portfolio-other-title">Supplementary course design, model documentation, and smaller studio studies.</h2>
+          <p>These boards are kept as a compact archive of additional design training. The labels are intentionally broad so they match the actual visual content rather than overclaiming specific categories.</p>
+        </div>
+      </header>
+      <section class="portfolio-board-frame" aria-label="Other Work boards">
+        <div class="portfolio-board-toolbar">
+          <div>
+            <span class="portfolio-board-count" data-slide-counter>1 / 3</span>
+            <strong data-slide-title>Course-design board set</strong>
+          </div>
+          <div class="portfolio-board-actions">
+            <a class="portfolio-board-open" data-slide-open href="assets/portfolio/other-board-01.jpg" target="_blank" rel="noopener">Open</a>
+            <button class="portfolio-board-button" type="button" data-slide-prev aria-label="Previous board">&lt;</button>
+            <button class="portfolio-board-button" type="button" data-slide-next aria-label="Next board">&gt;</button>
+          </div>
+        </div>
+        <div class="portfolio-slides">
+          <figure class="portfolio-slide is-active" data-slide-title="Course-design board set">
+            <a href="assets/portfolio/other-board-01.jpg" target="_blank" rel="noopener"><img src="assets/portfolio/other-board-01.jpg" alt="Supplementary course-design board set"></a>
+            <figcaption>Campus square and small-scale landscape course-design boards.</figcaption>
+          </figure>
+          <figure class="portfolio-slide" data-slide-title="Additional boards and furniture study" hidden>
+            <a href="assets/portfolio/other-board-02.jpg" target="_blank" rel="noopener"><img src="assets/portfolio/other-board-02.jpg" alt="Additional boards and furniture-design documentation"></a>
+            <figcaption>Additional board work, outdoor furniture design, and physical-model documentation.</figcaption>
+          </figure>
+          <figure class="portfolio-slide" data-slide-title="Physical model photographs" hidden>
+            <a href="assets/portfolio/other-board-03.jpg" target="_blank" rel="noopener"><img src="assets/portfolio/other-board-03.jpg" alt="Physical model photographs"></a>
+            <figcaption>Physical model photographs documenting a built campus-scale model.</figcaption>
+          </figure>
+        </div>
+        <div class="portfolio-slide-tabs" role="tablist" aria-label="Other Work board navigation">
+          <button type="button" class="is-active" data-slide-to="0">01</button>
+          <button type="button" data-slide-to="1">02</button>
+          <button type="button" data-slide-to="2">03</button>
+        </div>
+      </section>
     </section>
 
     <section class="portfolio-note" aria-label="Portfolio note">
-      <p>Portfolio materials were reorganized from original design boards into a web-first format. The full PDF can be provided on request if a complete print portfolio is needed.</p>
+      <p>Boards are optimized from the original portfolio files for web viewing. Use the Open button on each viewer to inspect the current board at a larger size.</p>
     </section>
   </main>
 
@@ -205,6 +310,6 @@
     <p>&copy; <span id="year"></span> Jinyu Hu</p>
     <p><a href="mailto:hujy24@m.fudan.edu.cn">hujy24@m.fudan.edu.cn</a></p>
   </footer>
-  <script src="script.js?v=20260530-linkedin"></script>
+  <script src="script.js?v=portfolio-boards-final-20260602"></script>
 </body>
 </html>

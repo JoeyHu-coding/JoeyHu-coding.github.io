@@ -379,6 +379,79 @@ function initPhotoCropper() {
   });
 }
 
+function initPortfolioViewers() {
+  document.querySelectorAll("[data-portfolio-viewer]").forEach((viewer) => {
+    const slides = Array.from(viewer.querySelectorAll(".portfolio-slide"));
+    const tabs = Array.from(viewer.querySelectorAll("[data-slide-to]"));
+    const counter = viewer.querySelector("[data-slide-counter]");
+    const title = viewer.querySelector("[data-slide-title]");
+    const openLink = viewer.querySelector("[data-slide-open]");
+    const prevButton = viewer.querySelector("[data-slide-prev]");
+    const nextButton = viewer.querySelector("[data-slide-next]");
+
+    if (!slides.length) {
+      return;
+    }
+
+    let current = Math.max(0, slides.findIndex((slide) => slide.classList.contains("is-active")));
+
+    function setSlide(index) {
+      current = (index + slides.length) % slides.length;
+
+      slides.forEach((slide, slideIndex) => {
+        const isActive = slideIndex === current;
+        slide.classList.toggle("is-active", isActive);
+        slide.hidden = !isActive;
+      });
+
+      tabs.forEach((tab, tabIndex) => {
+        const isActive = tabIndex === current;
+        tab.classList.toggle("is-active", isActive);
+        tab.setAttribute("aria-selected", String(isActive));
+      });
+
+      const activeSlide = slides[current];
+      const activeImageLink = activeSlide.querySelector("a[href]");
+      const activeTitle = activeSlide.dataset.slideTitle || `Board ${current + 1}`;
+
+      if (counter) {
+        counter.textContent = `${current + 1} / ${slides.length}`;
+      }
+
+      if (title) {
+        title.textContent = activeTitle;
+      }
+
+      if (openLink && activeImageLink) {
+        openLink.href = activeImageLink.href;
+      }
+    }
+
+    prevButton?.addEventListener("click", () => setSlide(current - 1));
+    nextButton?.addEventListener("click", () => setSlide(current + 1));
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const nextIndex = Number(tab.dataset.slideTo);
+        if (Number.isInteger(nextIndex)) {
+          setSlide(nextIndex);
+        }
+      });
+    });
+
+    viewer.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") {
+        setSlide(current - 1);
+      }
+      if (event.key === "ArrowRight") {
+        setSlide(current + 1);
+      }
+    });
+
+    setSlide(current);
+  });
+}
+
 applyTheme(getSavedTheme() || document.documentElement.dataset.theme || "dark");
 
 themeToggle?.addEventListener("click", () => {
@@ -392,3 +465,4 @@ document.querySelectorAll("#year").forEach((node) => {
 
 initProfilePhotoFrames();
 initPhotoCropper();
+initPortfolioViewers();
