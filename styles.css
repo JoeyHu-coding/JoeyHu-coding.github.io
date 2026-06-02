@@ -2409,7 +2409,8 @@ html[data-theme="dark"] body::after {
   background: color-mix(in srgb, var(--panel) 74%, transparent);
 }
 
-.research-theme--primary {
+.research-theme--primary,
+.research-theme--wide {
   grid-column: 1 / -1;
   grid-template-columns: minmax(140px, 0.22fr) minmax(0, 1fr);
   padding: clamp(1.15rem, 2.5vw, 1.7rem);
@@ -2451,6 +2452,10 @@ html[data-theme="dark"] body::after {
 
 .research-theme--primary .research-theme__body h2 {
   font-size: clamp(1.65rem, 3vw, 2.85rem);
+}
+
+.research-theme--wide .research-theme__body h2 {
+  font-size: clamp(1.45rem, 2.6vw, 2.55rem);
 }
 
 .research-theme__body > p {
@@ -2528,7 +2533,8 @@ html[data-theme="dark"] body::after {
   }
 
   .research-theme,
-  .research-theme--primary {
+  .research-theme--primary,
+  .research-theme--wide {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
