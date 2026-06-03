@@ -2108,12 +2108,28 @@ html[data-theme="dark"] body::after {
   width: min(1100px, calc(100% - 2.25rem));
 }
 
+.about-title {
+  padding-bottom: clamp(2rem, 4vw, 3.4rem);
+}
+
+.about-title h1 {
+  max-width: 920px;
+  font-size: clamp(2.6rem, 5.4vw, 5.2rem);
+  line-height: 0.98;
+}
+
 .about-overview {
   display: grid;
   grid-template-columns: minmax(0, 1.55fr) minmax(260px, 0.75fr);
   gap: clamp(1.6rem, 5vw, 4rem);
   padding: clamp(1.8rem, 4vw, 3.1rem) 0;
   border-bottom: 1px solid var(--line);
+}
+
+.about-overview--trajectory {
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+  gap: clamp(1.4rem, 3.8vw, 3rem);
+  align-items: stretch;
 }
 
 .about-overview__bio {
@@ -2132,6 +2148,59 @@ html[data-theme="dark"] body::after {
   color: color-mix(in srgb, var(--muted) 90%, var(--ink));
   font-size: clamp(1rem, 1.25vw, 1.08rem);
   line-height: 1.76;
+}
+
+.about-overview--trajectory .about-overview__bio h2 {
+  max-width: 640px;
+  font-size: clamp(1.65rem, 2.8vw, 2.35rem);
+}
+
+.about-overview--trajectory .about-overview__bio p:not(.eyebrow) {
+  max-width: 680px;
+  font-size: 0.98rem;
+  line-height: 1.68;
+}
+
+.about-keyword-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  padding: clamp(1rem, 2.3vw, 1.35rem);
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--panel) 78%, transparent), color-mix(in srgb, var(--paper-2) 84%, transparent));
+}
+
+.keyword-orbit {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 0.45rem;
+  min-height: 15rem;
+  margin-top: 1rem;
+}
+
+.keyword-orbit span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.05rem;
+  padding: 0 0.68rem;
+  border: 1px solid color-mix(in srgb, var(--line) 88%, transparent);
+  color: color-mix(in srgb, var(--ink) 82%, var(--muted));
+  background: color-mix(in srgb, var(--panel) 68%, transparent);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.keyword-orbit .keyword-orbit__core {
+  min-height: 2.7rem;
+  border-color: color-mix(in srgb, var(--accent) 54%, var(--line));
+  color: var(--accent-2);
+  font-size: 0.82rem;
 }
 
 .about-overview__facts {
@@ -2608,6 +2677,10 @@ html[data-theme="dark"] body::after {
 
   .about-section__heading h2 {
     max-width: none;
+  }
+
+  .keyword-orbit {
+    min-height: 0;
   }
 
   .skill-grid,
