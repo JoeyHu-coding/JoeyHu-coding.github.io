@@ -2113,9 +2113,17 @@ html[data-theme="dark"] body::after {
 }
 
 .about-title h1 {
-  max-width: 920px;
-  font-size: clamp(2.6rem, 5.4vw, 5.2rem);
-  line-height: 0.98;
+  max-width: 780px;
+  font-size: clamp(1.85rem, 3.35vw, 3.15rem);
+  line-height: 1.02;
+}
+
+.about-wordcloud-section {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.28fr) minmax(0, 0.72fr);
+  gap: clamp(1.4rem, 4vw, 3.2rem);
+  padding: clamp(1.2rem, 3vw, 2.1rem) 0 clamp(1.5rem, 3.6vw, 2.6rem);
+  border-bottom: 1px solid var(--line);
 }
 
 .about-overview {
@@ -2203,6 +2211,65 @@ html[data-theme="dark"] body::after {
   font-size: 0.82rem;
 }
 
+.about-word-cloud {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 0.08rem 0.72rem;
+  min-height: clamp(12rem, 24vw, 18rem);
+  max-width: 780px;
+  margin-inline: auto;
+  padding: clamp(0.6rem, 2vw, 1.2rem);
+  overflow: hidden;
+}
+
+.word-cloud__term {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  color: color-mix(in srgb, var(--ink) 76%, var(--muted));
+  font-family: var(--serif);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.word-cloud__term:nth-child(3n) {
+  color: color-mix(in srgb, var(--accent-2) 82%, var(--ink));
+}
+
+.word-cloud__term:nth-child(4n) {
+  color: color-mix(in srgb, var(--muted) 86%, var(--ink));
+}
+
+.word-cloud__term:nth-child(5n) {
+  color: color-mix(in srgb, var(--accent) 74%, var(--ink));
+}
+
+.word-cloud__term--xxl {
+  font-size: clamp(2.25rem, 5.2vw, 4.45rem);
+  color: var(--ink-strong);
+}
+
+.word-cloud__term--xl {
+  font-size: clamp(1.65rem, 3.6vw, 3.2rem);
+}
+
+.word-cloud__term--lg {
+  font-size: clamp(1.16rem, 2.45vw, 2.05rem);
+}
+
+.word-cloud__term--md {
+  font-size: clamp(0.92rem, 1.7vw, 1.38rem);
+}
+
+.word-cloud__term--sm {
+  font-size: clamp(0.78rem, 1.15vw, 0.98rem);
+  letter-spacing: 0.03em;
+}
+
 .about-overview__facts {
   align-self: start;
   padding: clamp(1rem, 2.5vw, 1.35rem);
@@ -2282,6 +2349,168 @@ html[data-theme="dark"] body::after {
 .about-section--contact .link-list {
   margin: 0;
   color: color-mix(in srgb, var(--muted) 90%, var(--ink));
+}
+
+.about-section--map {
+  border-bottom: 0;
+}
+
+.about-map {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.about-map__frame {
+  position: relative;
+  aspect-ratio: 1800 / 1271;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(130deg, color-mix(in srgb, var(--paper-3) 40%, transparent), transparent 52%),
+    color-mix(in srgb, var(--panel) 78%, transparent);
+}
+
+.about-map__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(0.94) brightness(0.92);
+}
+
+html[data-theme="dark"] .about-map__image {
+  filter: saturate(0.72) contrast(0.88) brightness(0.66);
+}
+
+.about-map__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--paper) 16%, transparent), transparent 20%),
+    linear-gradient(0deg, color-mix(in srgb, var(--paper) 12%, transparent), transparent 16%);
+  pointer-events: none;
+}
+
+.about-map-point {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  translate: -50% -50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  max-width: 8rem;
+  color: var(--ink-strong);
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow:
+    0 1px 0 var(--paper),
+    0 0 9px var(--paper),
+    0 0 16px var(--paper);
+}
+
+.about-map-point::before {
+  content: "";
+  width: 0.52rem;
+  height: 0.52rem;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 0.32rem color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+.about-map-point--network {
+  color: color-mix(in srgb, var(--ink) 78%, var(--muted));
+  font-size: 0.56rem;
+}
+
+.about-map-point--network::before {
+  width: 0.38rem;
+  height: 0.38rem;
+  background: var(--accent-2);
+  box-shadow: 0 0 0 0.24rem color-mix(in srgb, var(--accent-2) 13%, transparent);
+}
+
+.about-map-point--dot-only {
+  font-size: 0;
+  gap: 0;
+}
+
+.about-map-point--dot-only::before {
+  width: 0.46rem;
+  height: 0.46rem;
+}
+
+.about-map__meta {
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+  align-items: center;
+  gap: 0.8rem 1rem;
+  color: color-mix(in srgb, var(--muted) 88%, var(--ink));
+  font-size: 0.84rem;
+}
+
+.about-map__meta p {
+  margin: 0;
+}
+
+.about-map__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.48rem 0.8rem;
+  color: color-mix(in srgb, var(--ink) 86%, var(--muted));
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.about-map__legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.34rem;
+}
+
+.about-map__dot {
+  display: inline-block;
+  width: 0.54rem;
+  height: 0.54rem;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.about-map__dot--network {
+  background: var(--accent-2);
+}
+
+.about-map__lists {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.about-map__lists section {
+  padding: 0.85rem;
+  background: color-mix(in srgb, var(--panel) 72%, transparent);
+}
+
+.about-map__lists h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.about-map__lists p {
+  margin: 0;
+  color: color-mix(in srgb, var(--muted) 90%, var(--ink));
+  font-size: 0.88rem;
+  line-height: 1.5;
 }
 
 .timeline-list {
@@ -2670,6 +2899,7 @@ html[data-theme="dark"] body::after {
     grid-template-columns: 1fr;
   }
 
+  .about-wordcloud-section,
   .about-overview,
   .about-section {
     grid-template-columns: 1fr;
@@ -2681,6 +2911,26 @@ html[data-theme="dark"] body::after {
 
   .keyword-orbit {
     min-height: 0;
+  }
+
+  .about-word-cloud {
+    justify-content: flex-start;
+    min-height: 0;
+    padding-inline: 0;
+  }
+
+  .about-map__meta,
+  .about-map__lists {
+    grid-template-columns: 1fr;
+  }
+
+  .about-map-point {
+    font-size: 0;
+  }
+
+  .about-map-point::before {
+    width: 0.56rem;
+    height: 0.56rem;
   }
 
   .skill-grid,
