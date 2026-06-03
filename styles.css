@@ -2215,9 +2215,9 @@ html[data-theme="dark"] body::after {
 
 .about-word-cloud {
   position: relative;
-  min-height: clamp(19rem, 36vw, 25rem);
-  max-width: 960px;
-  margin: clamp(1rem, 2.6vw, 1.8rem) auto 0;
+  min-height: clamp(15.5rem, 28vw, 19.5rem);
+  max-width: 920px;
+  margin: clamp(0.35rem, 1.4vw, 0.85rem) auto 0;
   overflow: hidden;
 }
 
@@ -2261,24 +2261,29 @@ html[data-theme="dark"] body::after {
 }
 
 .word-cloud__term--xxl {
-  font-size: clamp(1.75rem, 3.75vw, 3.15rem);
+  font-size: clamp(1.55rem, 3.15vw, 2.72rem);
   color: var(--ink-strong);
 }
 
 .word-cloud__term--xl {
-  font-size: clamp(1.22rem, 2.45vw, 2.08rem);
+  font-size: clamp(1.08rem, 2.05vw, 1.75rem);
 }
 
 .word-cloud__term--lg {
-  font-size: clamp(0.98rem, 1.72vw, 1.44rem);
+  font-size: clamp(0.88rem, 1.44vw, 1.2rem);
 }
 
 .word-cloud__term--md {
-  font-size: clamp(0.84rem, 1.42vw, 1.16rem);
+  font-size: clamp(0.76rem, 1.18vw, 0.98rem);
 }
 
 .word-cloud__term--sm {
-  font-size: clamp(0.78rem, 1.15vw, 0.98rem);
+  font-size: clamp(0.66rem, 0.95vw, 0.8rem);
+  letter-spacing: 0.03em;
+}
+
+.word-cloud__term--xs {
+  font-size: clamp(0.58rem, 0.78vw, 0.7rem);
   letter-spacing: 0.03em;
 }
 
@@ -2440,52 +2445,83 @@ html[data-theme="dark"] .about-webgis__tile {
   z-index: 2;
   display: inline-flex;
   align-items: center;
-  gap: 0.34rem;
-  transform: translate(-0.48rem, -50%);
+  gap: 0.28rem;
+  min-width: 0;
+  padding: 0;
+  border: 0;
   color: var(--ink-strong);
+  background: transparent;
   font-family: var(--mono);
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
+  translate: -0.28rem -50%;
   text-shadow:
     0 1px 0 var(--paper),
     0 0 9px var(--paper),
     0 0 18px var(--paper);
+  cursor: default;
   pointer-events: auto;
 }
 
-.about-webgis__marker::before {
-  content: "";
+.about-webgis__pin {
+  position: relative;
   flex: 0 0 auto;
-  width: 0.62rem;
-  height: 0.62rem;
-  border: 2px solid color-mix(in srgb, var(--paper) 84%, transparent);
+  width: 0.58rem;
+  height: 0.58rem;
+  border: 2px solid color-mix(in srgb, var(--paper) 90%, transparent);
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 0 0.38rem color-mix(in srgb, var(--accent) 16%, transparent);
+  box-shadow:
+    0 0 0 0.28rem color-mix(in srgb, var(--accent) 15%, transparent),
+    0 4px 14px color-mix(in srgb, #000 24%, transparent);
+}
+
+.about-webgis__pin::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 1px;
+  height: 0.72rem;
+  background: color-mix(in srgb, var(--accent) 72%, var(--ink));
+  transform: translateX(-50%);
+}
+
+.about-webgis__label {
+  display: inline-block;
+  transform: translateY(-0.04rem);
 }
 
 .about-webgis__marker[data-type="network"] {
   z-index: 1;
   color: color-mix(in srgb, var(--ink) 82%, var(--muted));
-  font-size: 0.55rem;
+  font-size: 0.52rem;
   font-weight: 700;
 }
 
-.about-webgis__marker[data-type="network"]::before {
-  width: 0.48rem;
-  height: 0.48rem;
+.about-webgis__marker[data-type="network"] .about-webgis__pin {
+  width: 0.45rem;
+  height: 0.45rem;
   background: var(--accent-2);
-  box-shadow: 0 0 0 0.3rem color-mix(in srgb, var(--accent-2) 14%, transparent);
+  box-shadow:
+    0 0 0 0.22rem color-mix(in srgb, var(--accent-2) 13%, transparent),
+    0 4px 12px color-mix(in srgb, #000 20%, transparent);
 }
 
-.about-webgis__marker[data-type="both"]::before {
+.about-webgis__marker[data-type="network"] .about-webgis__pin::after {
+  height: 0.58rem;
+  background: color-mix(in srgb, var(--accent-2) 70%, var(--ink));
+}
+
+.about-webgis__marker[data-type="both"] .about-webgis__pin {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   box-shadow:
-    0 0 0 0.34rem color-mix(in srgb, var(--accent) 15%, transparent),
-    0 0 0 0.58rem color-mix(in srgb, var(--accent-2) 11%, transparent);
+    0 0 0 0.26rem color-mix(in srgb, var(--accent) 15%, transparent),
+    0 0 0 0.46rem color-mix(in srgb, var(--accent-2) 10%, transparent),
+    0 4px 14px color-mix(in srgb, #000 24%, transparent);
 }
 
 .about-webgis__controls {
@@ -3042,8 +3078,11 @@ html[data-theme="dark"] .about-webgis__tile {
   }
 
   .about-webgis__marker {
-    font-size: 0;
     gap: 0;
+  }
+
+  .about-webgis__label {
+    display: none;
   }
 
   .skill-grid,

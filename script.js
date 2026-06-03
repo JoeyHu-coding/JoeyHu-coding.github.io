@@ -616,9 +616,9 @@ function initAcademicWebGIS() {
       marker.type = "button";
       marker.className = "about-webgis__marker";
       marker.dataset.type = location.type;
-      marker.style.transform = `translate(${x}px, ${y}px) translate(-0.48rem, -50%)`;
-      marker.textContent = location.name;
+      marker.style.transform = `translate(${x}px, ${y}px)`;
       marker.title = `${location.name} - ${location.type === "primary" ? "My location" : location.type === "network" ? "Collaboration network" : "My location and collaboration network"}`;
+      marker.innerHTML = `<span class="about-webgis__pin" aria-hidden="true"></span><span class="about-webgis__label">${location.name}</span>`;
       fragment.append(marker);
     });
     markersLayer.replaceChildren(fragment);
