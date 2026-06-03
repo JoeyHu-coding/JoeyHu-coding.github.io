@@ -463,6 +463,371 @@ function initPortfolioViewers() {
   });
 }
 
+function initAcademicWebGIS() {
+  const map = document.querySelector("[data-webgis-map]");
+  if (!map) {
+    return;
+  }
+  if (map.dataset.webgisInitialized === "true") {
+    return;
+  }
+
+  const viewport = map.querySelector("[data-webgis-tiles]")?.parentElement;
+  const tilesLayer = map.querySelector("[data-webgis-tiles]");
+  const markersLayer = map.querySelector("[data-webgis-markers]");
+  const status = map.querySelector("[data-webgis-status]");
+  const zoomInButton = map.querySelector("[data-map-zoom-in]");
+  const zoomOutButton = map.querySelector("[data-map-zoom-out]");
+  const resetButton = map.querySelector("[data-map-reset]");
+  const token = map.dataset.tdtToken || "";
+
+  if (!viewport || !tilesLayer || !markersLayer) {
+    return;
+  }
+  map.dataset.webgisInitialized = "true";
+
+  const tileSize = 256;
+  const initialView = {
+    lat: 26,
+    lng: 72,
+    zoom: 2
+  };
+  const state = {
+    center: { lat: initialView.lat, lng: initialView.lng },
+    zoom: initialView.zoom,
+    providerIndex: 0,
+    generation: 0,
+    dragging: false,
+    renderQueued: false,
+    dragStart: null,
+    dragCenterPx: null
+  };
+
+  const providers = [
+    {
+      id: "tianditu-en",
+      ready: "Basemap: Tianditu English tiles. Drag to pan; scroll or use controls to zoom.",
+      failed: "Tianditu tiles did not load here; switching to an interactive fallback basemap.",
+      layers: [
+        (z, x, y) => `https://t${positiveModulo(x + y, 8)}.tianditu.gov.cn/DataServer?T=vec_w&x=${positiveModulo(x, 2 ** z)}&y=${y}&l=${z}&tk=${token}`,
+        (z, x, y) => `https://t${positiveModulo(x + y + 3, 8)}.tianditu.gov.cn/DataServer?T=eva_w&x=${positiveModulo(x, 2 ** z)}&y=${y}&l=${z}&tk=${token}`
+      ]
+    },
+    {
+      id: "carto-voyager",
+      ready: "Basemap fallback: CartoDB Voyager. Drag to pan; scroll or use controls to zoom.",
+      layers: [
+        (z, x, y) => {
+          const subdomains = ["a", "b", "c", "d"];
+          const subdomain = subdomains[positiveModulo(x + y, subdomains.length)];
+          return `https://${subdomain}.basemaps.cartocdn.com/rastertiles/voyager/${z}/${positiveModulo(x, 2 ** z)}/${y}.png`;
+        }
+      ]
+    }
+  ];
+
+  const locations = [
+    { name: "Shanghai", lat: 31.2304, lng: 121.4737, type: "primary" },
+    { name: "Beijing", lat: 39.9042, lng: 116.4074, type: "both" },
+    { name: "Nanjing", lat: 32.0603, lng: 118.7969, type: "primary" },
+    { name: "Osaka", lat: 34.6937, lng: 135.5023, type: "primary" },
+    { name: "New York", lat: 40.7128, lng: -74.006, type: "primary" },
+    { name: "Nanchang", lat: 28.682, lng: 115.8581, type: "primary" },
+    { name: "Shenzhen", lat: 22.5431, lng: 114.0579, type: "network" },
+    { name: "Hong Kong", lat: 22.3193, lng: 114.1694, type: "network" },
+    { name: "Tokyo", lat: 35.6762, lng: 139.6503, type: "network" },
+    { name: "Auckland", lat: -36.8509, lng: 174.7645, type: "network" },
+    { name: "Amsterdam", lat: 52.3676, lng: 4.9041, type: "network" },
+    { name: "Boston", lat: 42.3601, lng: -71.0589, type: "network" },
+    { name: "Ann Arbor", lat: 42.2808, lng: -83.743, type: "network" },
+    { name: "Canberra", lat: -35.2809, lng: 149.13, type: "network" },
+    { name: "Wuhan", lat: 30.5928, lng: 114.3055, type: "network" },
+    { name: "Guangzhou", lat: 23.1291, lng: 113.2644, type: "network" },
+    { name: "Manchester", lat: 53.4808, lng: -2.2426, type: "network" },
+    { name: "Singapore", lat: 1.3521, lng: 103.8198, type: "network" }
+  ];
+
+  function positiveModulo(value, divisor) {
+    return ((value % divisor) + divisor) % divisor;
+  }
+
+  function clamp(value, min, max) {
+    return Math.min(max, Math.max(min, value));
+  }
+
+  function wrapLng(lng) {
+    return positiveModulo(lng + 180, 360) - 180;
+  }
+
+  function project(lat, lng, zoom) {
+    const siny = clamp(Math.sin((lat * Math.PI) / 180), -0.9999, 0.9999);
+    const scale = tileSize * 2 ** zoom;
+    return {
+      x: ((lng + 180) / 360) * scale,
+      y: (0.5 - Math.log((1 + siny) / (1 - siny)) / (4 * Math.PI)) * scale
+    };
+  }
+
+  function unproject(x, y, zoom) {
+    const scale = tileSize * 2 ** zoom;
+    const lng = (x / scale) * 360 - 180;
+    const n = Math.PI - (2 * Math.PI * y) / scale;
+    const lat = (180 / Math.PI) * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n)));
+    return {
+      lat: clamp(lat, -80, 80),
+      lng: wrapLng(lng)
+    };
+  }
+
+  function setStatus(message) {
+    if (status) {
+      status.textContent = message;
+    }
+  }
+
+  function switchProvider(nextIndex) {
+    if (!providers[nextIndex] || state.providerIndex === nextIndex) {
+      return;
+    }
+    setStatus(providers[state.providerIndex].failed || "Switching basemap.");
+    state.providerIndex = nextIndex;
+    scheduleRender();
+  }
+
+  function renderMarkers(topLeft, viewportWidth, viewportHeight) {
+    const fragment = document.createDocumentFragment();
+    locations.forEach((location) => {
+      const point = project(location.lat, location.lng, state.zoom);
+      let x = point.x - topLeft.x;
+      const worldWidth = tileSize * 2 ** state.zoom;
+      if (x < -viewportWidth / 2) {
+        x += worldWidth;
+      }
+      if (x > viewportWidth * 1.5) {
+        x -= worldWidth;
+      }
+      const y = point.y - topLeft.y;
+
+      if (y < -24 || y > viewportHeight + 24 || x < -120 || x > viewportWidth + 120) {
+        return;
+      }
+
+      const marker = document.createElement("button");
+      marker.type = "button";
+      marker.className = "about-webgis__marker";
+      marker.dataset.type = location.type;
+      marker.style.transform = `translate(${x}px, ${y}px) translate(-0.48rem, -50%)`;
+      marker.textContent = location.name;
+      marker.title = `${location.name} - ${location.type === "primary" ? "My location" : location.type === "network" ? "Collaboration network" : "My location and collaboration network"}`;
+      fragment.append(marker);
+    });
+    markersLayer.replaceChildren(fragment);
+  }
+
+  function render() {
+    state.renderQueued = false;
+    state.generation += 1;
+    const generation = state.generation;
+    const provider = providers[state.providerIndex];
+    const bounds = viewport.getBoundingClientRect();
+    const viewportWidth = Math.max(1, Math.round(bounds.width));
+    const viewportHeight = Math.max(1, Math.round(bounds.height));
+    const centerPx = project(state.center.lat, state.center.lng, state.zoom);
+    const topLeft = {
+      x: centerPx.x - viewportWidth / 2,
+      y: centerPx.y - viewportHeight / 2
+    };
+    const maxTile = 2 ** state.zoom;
+    const minTileX = Math.floor(topLeft.x / tileSize) - 1;
+    const maxTileX = Math.floor((topLeft.x + viewportWidth) / tileSize) + 1;
+    const minTileY = clamp(Math.floor(topLeft.y / tileSize) - 1, 0, maxTile - 1);
+    const maxTileY = clamp(Math.floor((topLeft.y + viewportHeight) / tileSize) + 1, 0, maxTile - 1);
+    const fragment = document.createDocumentFragment();
+    const stats = { loaded: 0, errored: 0 };
+
+    for (let tileY = minTileY; tileY <= maxTileY; tileY += 1) {
+      for (let tileX = minTileX; tileX <= maxTileX; tileX += 1) {
+        provider.layers.forEach((tileUrl, layerIndex) => {
+          const image = document.createElement("img");
+          image.className = "about-webgis__tile";
+          image.alt = "";
+          image.draggable = false;
+          image.decoding = "async";
+          image.loading = "eager";
+          image.style.left = `${tileX * tileSize - topLeft.x}px`;
+          image.style.top = `${tileY * tileSize - topLeft.y}px`;
+          image.style.zIndex = String(layerIndex + 1);
+          image.src = tileUrl(state.zoom, tileX, tileY);
+          image.addEventListener("load", () => {
+            if (generation !== state.generation) {
+              return;
+            }
+            stats.loaded += 1;
+            if (stats.loaded >= provider.layers.length) {
+              setStatus(provider.ready);
+            }
+          });
+          image.addEventListener("error", () => {
+            if (generation !== state.generation) {
+              return;
+            }
+            stats.errored += 1;
+            if (state.providerIndex === 0 && stats.errored >= 8 && stats.loaded < 2) {
+              switchProvider(1);
+            }
+          });
+          fragment.append(image);
+        });
+      }
+    }
+
+    window.setTimeout(() => {
+      if (generation === state.generation && state.providerIndex === 0 && stats.loaded < 2) {
+        switchProvider(1);
+      }
+    }, 1800);
+
+    tilesLayer.replaceChildren(fragment);
+    renderMarkers(topLeft, viewportWidth, viewportHeight);
+  }
+
+  function scheduleRender() {
+    if (state.renderQueued) {
+      return;
+    }
+    state.renderQueued = true;
+    window.setTimeout(render, 0);
+  }
+
+  function zoomBy(delta, anchorPoint) {
+    const nextZoom = clamp(state.zoom + delta, 2, 7);
+    if (nextZoom === state.zoom) {
+      return;
+    }
+
+    if (anchorPoint) {
+      const bounds = viewport.getBoundingClientRect();
+      const oldCenterPx = project(state.center.lat, state.center.lng, state.zoom);
+      const oldTopLeft = {
+        x: oldCenterPx.x - bounds.width / 2,
+        y: oldCenterPx.y - bounds.height / 2
+      };
+      const anchorWorld = {
+        x: oldTopLeft.x + anchorPoint.x,
+        y: oldTopLeft.y + anchorPoint.y
+      };
+      const nextAnchorWorld = {
+        x: anchorWorld.x * 2 ** (nextZoom - state.zoom),
+        y: anchorWorld.y * 2 ** (nextZoom - state.zoom)
+      };
+      const nextCenterPx = {
+        x: nextAnchorWorld.x - anchorPoint.x + bounds.width / 2,
+        y: nextAnchorWorld.y - anchorPoint.y + bounds.height / 2
+      };
+      state.zoom = nextZoom;
+      state.center = unproject(nextCenterPx.x, nextCenterPx.y, state.zoom);
+    } else {
+      state.zoom = nextZoom;
+    }
+
+    scheduleRender();
+  }
+
+  function startDrag(clientX, clientY) {
+    state.dragging = true;
+    state.dragStart = { x: clientX, y: clientY };
+    state.dragCenterPx = project(state.center.lat, state.center.lng, state.zoom);
+    viewport.classList.add("is-dragging");
+  }
+
+  function moveDrag(clientX, clientY) {
+    if (!state.dragging || !state.dragStart || !state.dragCenterPx) {
+      return;
+    }
+    const dx = clientX - state.dragStart.x;
+    const dy = clientY - state.dragStart.y;
+    state.center = unproject(state.dragCenterPx.x - dx, state.dragCenterPx.y - dy, state.zoom);
+    scheduleRender();
+  }
+
+  function finishDrag() {
+    state.dragging = false;
+    state.dragStart = null;
+    state.dragCenterPx = null;
+    viewport.classList.remove("is-dragging");
+  }
+
+  let lastPointerStartAt = 0;
+
+  viewport.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+    lastPointerStartAt = Date.now();
+    startDrag(event.clientX, event.clientY);
+    try {
+      viewport.setPointerCapture(event.pointerId);
+    } catch (error) {
+      // Pointer capture is a convenience; drag still works without it.
+    }
+  });
+
+  viewport.addEventListener("pointermove", (event) => {
+    moveDrag(event.clientX, event.clientY);
+  });
+
+  function endDrag(event) {
+    if (state.dragging && event.pointerId !== undefined) {
+      try {
+        viewport.releasePointerCapture(event.pointerId);
+      } catch (error) {
+        // Pointer capture can already be released by the browser.
+      }
+    }
+    finishDrag();
+  }
+
+  viewport.addEventListener("pointerup", endDrag);
+  viewport.addEventListener("pointercancel", endDrag);
+  viewport.addEventListener("mousedown", (event) => {
+    if (Date.now() - lastPointerStartAt < 450) {
+      return;
+    }
+    event.preventDefault();
+    startDrag(event.clientX, event.clientY);
+  });
+  document.addEventListener("mousemove", (event) => {
+    if (Date.now() - lastPointerStartAt < 450) {
+      return;
+    }
+    moveDrag(event.clientX, event.clientY);
+  });
+  document.addEventListener("mouseup", () => {
+    if (Date.now() - lastPointerStartAt < 450) {
+      return;
+    }
+    finishDrag();
+  });
+  viewport.addEventListener("wheel", (event) => {
+    event.preventDefault();
+    const bounds = viewport.getBoundingClientRect();
+    zoomBy(event.deltaY < 0 ? 1 : -1, {
+      x: event.clientX - bounds.left,
+      y: event.clientY - bounds.top
+    });
+  }, { passive: false });
+
+  zoomInButton?.addEventListener("click", () => zoomBy(1));
+  zoomOutButton?.addEventListener("click", () => zoomBy(-1));
+  resetButton?.addEventListener("click", () => {
+    state.center = { lat: initialView.lat, lng: initialView.lng };
+    state.zoom = initialView.zoom;
+    scheduleRender();
+  });
+
+  window.addEventListener("resize", scheduleRender);
+  setStatus("Loading Tianditu English basemap...");
+  scheduleRender();
+}
+
 applyTheme(getSavedTheme() || document.documentElement.dataset.theme || "dark");
 
 themeToggle?.addEventListener("click", () => {
@@ -474,6 +839,15 @@ document.querySelectorAll("#year").forEach((node) => {
   node.textContent = new Date().getFullYear();
 });
 
-initProfilePhotoFrames();
-initPhotoCropper();
-initPortfolioViewers();
+function initPage() {
+  initProfilePhotoFrames();
+  initPhotoCropper();
+  initPortfolioViewers();
+  initAcademicWebGIS();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initPage, { once: true });
+} else {
+  initPage();
+}
