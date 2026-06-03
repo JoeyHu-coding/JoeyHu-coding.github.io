@@ -185,7 +185,14 @@ a:hover {
 
 .nav a {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 1rem;
   color: var(--muted);
+  font-size: 0.69rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.105em;
   text-decoration: none;
 }
 
