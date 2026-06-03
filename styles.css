@@ -2450,9 +2450,10 @@ html[data-theme="dark"] .about-webgis__tile {
   left: 0;
   top: 0;
   z-index: 2;
+  width: max-content;
   display: inline-flex;
   align-items: center;
-  gap: 0.28rem;
+  gap: 0.34rem;
   min-width: 0;
   padding: 0;
   border: 0;
@@ -2464,7 +2465,7 @@ html[data-theme="dark"] .about-webgis__tile {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
-  translate: -0.28rem -50%;
+  translate: -0.34rem calc(-100% + 0.24rem);
   text-shadow:
     0 1px 0 var(--paper),
     0 0 9px var(--paper),
@@ -2473,33 +2474,35 @@ html[data-theme="dark"] .about-webgis__tile {
   pointer-events: auto;
 }
 
-.about-webgis__pin {
+.about-webgis__symbol {
   position: relative;
   flex: 0 0 auto;
-  width: 0.58rem;
-  height: 0.58rem;
-  border: 2px solid color-mix(in srgb, var(--paper) 90%, transparent);
-  border-radius: 50%;
+  width: 0.68rem;
+  height: 0.68rem;
+  border: 2px solid color-mix(in srgb, var(--paper) 92%, transparent);
+  border-radius: 50% 50% 50% 0;
   background: var(--accent);
+  transform: rotate(-45deg);
   box-shadow:
-    0 0 0 0.28rem color-mix(in srgb, var(--accent) 15%, transparent),
+    0 0 0 0.25rem color-mix(in srgb, var(--accent) 14%, transparent),
     0 4px 14px color-mix(in srgb, #000 24%, transparent);
 }
 
-.about-webgis__pin::after {
+.about-webgis__symbol::after {
   content: "";
   position: absolute;
   left: 50%;
-  top: 100%;
-  width: 1px;
-  height: 0.72rem;
-  background: color-mix(in srgb, var(--accent) 72%, var(--ink));
-  transform: translateX(-50%);
+  top: 50%;
+  width: 0.2rem;
+  height: 0.2rem;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  transform: translate(-50%, -50%);
 }
 
 .about-webgis__label {
   display: inline-block;
-  transform: translateY(-0.04rem);
+  transform: translateY(-0.42rem);
 }
 
 .about-webgis__marker[data-type="network"] {
@@ -2507,28 +2510,27 @@ html[data-theme="dark"] .about-webgis__tile {
   color: color-mix(in srgb, var(--ink) 82%, var(--muted));
   font-size: 0.52rem;
   font-weight: 700;
+  translate: -0.25rem -50%;
 }
 
-.about-webgis__marker[data-type="network"] .about-webgis__pin {
-  width: 0.45rem;
-  height: 0.45rem;
+.about-webgis__marker[data-type="network"] .about-webgis__symbol {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-width: 1px;
+  border-radius: 0.12rem;
   background: var(--accent-2);
+  transform: rotate(45deg);
   box-shadow:
-    0 0 0 0.22rem color-mix(in srgb, var(--accent-2) 13%, transparent),
+    0 0 0 0.18rem color-mix(in srgb, var(--accent-2) 13%, transparent),
     0 4px 12px color-mix(in srgb, #000 20%, transparent);
 }
 
-.about-webgis__marker[data-type="network"] .about-webgis__pin::after {
-  height: 0.58rem;
-  background: color-mix(in srgb, var(--accent-2) 70%, var(--ink));
+.about-webgis__marker[data-type="network"] .about-webgis__symbol::after {
+  display: none;
 }
 
-.about-webgis__marker[data-type="both"] .about-webgis__pin {
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  box-shadow:
-    0 0 0 0.26rem color-mix(in srgb, var(--accent) 15%, transparent),
-    0 0 0 0.46rem color-mix(in srgb, var(--accent-2) 10%, transparent),
-    0 4px 14px color-mix(in srgb, #000 24%, transparent);
+.about-webgis__marker[data-type="network"] .about-webgis__label {
+  transform: translateY(0);
 }
 
 .about-webgis__controls {
@@ -2594,10 +2596,6 @@ html[data-theme="dark"] .about-webgis__tile {
   font-size: 0.84rem;
 }
 
-.about-map__meta p {
-  margin: 0;
-}
-
 .about-map__legend {
   display: flex;
   flex-wrap: wrap;
@@ -2620,12 +2618,18 @@ html[data-theme="dark"] .about-webgis__tile {
   display: inline-block;
   width: 0.54rem;
   height: 0.54rem;
-  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--paper) 88%, transparent);
+  border-radius: 50% 50% 50% 0;
   background: var(--accent);
+  transform: rotate(-45deg);
 }
 
 .about-map__dot--network {
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 0.12rem;
   background: var(--accent-2);
+  transform: rotate(45deg);
 }
 
 .about-map__lists {

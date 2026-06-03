@@ -528,11 +528,12 @@ function initAcademicWebGIS() {
 
   const locations = [
     { name: "Shanghai", lat: 31.2304, lng: 121.4737, type: "primary" },
-    { name: "Beijing", lat: 39.9042, lng: 116.4074, type: "both" },
+    { name: "Beijing", lat: 39.9042, lng: 116.4074, type: "primary" },
     { name: "Nanjing", lat: 32.0603, lng: 118.7969, type: "primary" },
     { name: "Osaka", lat: 34.6937, lng: 135.5023, type: "primary" },
     { name: "New York", lat: 40.7128, lng: -74.006, type: "primary" },
     { name: "Nanchang", lat: 28.682, lng: 115.8581, type: "primary" },
+    { name: "Beijing", lat: 39.9042, lng: 116.4074, type: "network", dx: 12, dy: 8 },
     { name: "Shenzhen", lat: 22.5431, lng: 114.0579, type: "network" },
     { name: "Hong Kong", lat: 22.3193, lng: 114.1694, type: "network" },
     { name: "Tokyo", lat: 35.6762, lng: 139.6503, type: "network" },
@@ -616,9 +617,9 @@ function initAcademicWebGIS() {
       marker.type = "button";
       marker.className = "about-webgis__marker";
       marker.dataset.type = location.type;
-      marker.style.transform = `translate(${x}px, ${y}px)`;
-      marker.title = `${location.name} - ${location.type === "primary" ? "My location" : location.type === "network" ? "Collaboration network" : "My location and collaboration network"}`;
-      marker.innerHTML = `<span class="about-webgis__pin" aria-hidden="true"></span><span class="about-webgis__label">${location.name}</span>`;
+      marker.style.transform = `translate(${x + (location.dx || 0)}px, ${y + (location.dy || 0)}px)`;
+      marker.title = `${location.name} - ${location.type === "primary" ? "My location" : "Collaboration network"}`;
+      marker.innerHTML = `<span class="about-webgis__symbol" aria-hidden="true"></span><span class="about-webgis__label">${location.name}</span>`;
       fragment.append(marker);
     });
     markersLayer.replaceChildren(fragment);
