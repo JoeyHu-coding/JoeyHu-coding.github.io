@@ -5870,6 +5870,10 @@ html {
 }
 
 /* Home rhythm pass: keep the compact two-column layout, but restore readable profile pacing. */
+.academic-home {
+  --profile-media-width: 11.95rem;
+}
+
 .academic-home .academic-profile {
   gap: clamp(1.45rem, 3.8vw, 3.7rem);
   padding-top: clamp(0.8rem, 1.9vw, 1.45rem);
