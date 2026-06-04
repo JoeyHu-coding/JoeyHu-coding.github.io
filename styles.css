@@ -4593,3 +4593,727 @@ html[data-theme="dark"] .about-webgis__tile {
     font-size: 0.6rem;
   }
 }
+
+/* Site density pass: reduce non-informative vertical whitespace before adding new visuals. */
+html {
+  font-size: 15.5px;
+}
+
+.site-header {
+  padding-block: 0.56rem;
+}
+
+.brand-mark {
+  width: 1.9rem;
+  height: 1.9rem;
+}
+
+.nav {
+  gap: 0.48rem 0.76rem;
+}
+
+.nav a {
+  min-height: 0.85rem;
+  font-size: 0.66rem;
+}
+
+.theme-toggle {
+  min-height: 1.9rem;
+  padding-inline: 0.58rem;
+}
+
+.home-main,
+.page-shell,
+.about-page {
+  width: min(1120px, calc(100% - 2rem));
+}
+
+.page-shell {
+  padding-top: 0.95rem;
+}
+
+.page-title,
+.research-title,
+.about-title,
+.portfolio-title--compact {
+  padding: clamp(0.9rem, 2vw, 1.45rem) 0 clamp(0.9rem, 2vw, 1.45rem);
+}
+
+.page-title .eyebrow,
+.about-section__heading .eyebrow,
+.project-section-heading .eyebrow,
+.portfolio-reader-info__text .pub-meta,
+.pub-group__label {
+  margin-bottom: 0.34rem;
+}
+
+.page-title h1,
+.about-title h1,
+.research-title h1,
+.portfolio-title--compact h1 {
+  max-width: 820px;
+  font-size: clamp(1.45rem, 2.2vw, 2.05rem);
+  line-height: 1.08;
+}
+
+.page-lead,
+.portfolio-title--compact .portfolio-lead {
+  max-width: 760px;
+  margin-top: 0.62rem;
+  font-size: 0.94rem;
+  line-height: 1.42;
+}
+
+.academic-home {
+  padding-top: 0.72rem;
+}
+
+.academic-profile {
+  grid-template-columns: minmax(230px, 0.3fr) minmax(0, 0.7fr);
+  gap: clamp(1.3rem, 4vw, 3.8rem);
+  padding: clamp(0.8rem, 2vw, 1.55rem) 0 clamp(1.15rem, 2.5vw, 2rem);
+}
+
+.academic-sidebar {
+  top: 3.9rem;
+  padding-right: clamp(0.8rem, 2vw, 1.35rem);
+}
+
+.academic-sidebar h1 {
+  font-size: clamp(1.72rem, 2.55vw, 2.35rem);
+}
+
+.portrait-frame {
+  margin: 0.58rem 0 0.66rem;
+}
+
+:root {
+  --profile-media-width: 10.1rem;
+  --measure: 72ch;
+}
+
+.academic-sidebar .profile-title {
+  margin-top: 0.62rem;
+  font-size: clamp(0.94rem, 1.15vw, 1.04rem);
+  line-height: 1.26;
+}
+
+.profile-meta {
+  gap: 0.42rem;
+  margin-top: 0.82rem;
+}
+
+.profile-meta div {
+  padding-top: 0.38rem;
+}
+
+.profile-meta dt {
+  margin-bottom: 0.08rem;
+  font-size: 0.6rem;
+}
+
+.profile-meta dd {
+  font-size: 0.84rem;
+  line-height: 1.26;
+}
+
+.profile-link-panel {
+  gap: 0.44rem;
+  margin-bottom: 0.64rem;
+}
+
+.profile-social-links {
+  gap: 0.34rem;
+}
+
+.profile-social-link {
+  min-height: 2rem;
+}
+
+.profile-email-link {
+  min-height: 2rem;
+  padding-inline: 0.5rem;
+}
+
+.academic-sidebar .profile-actions {
+  margin-top: 0.74rem;
+}
+
+.academic-intro h2 {
+  font-size: clamp(1.28rem, 1.8vw, 1.72rem);
+}
+
+.intro-lead {
+  margin: 0.56rem 0 0.66rem;
+  font-size: clamp(1.02rem, 1.38vw, 1.18rem);
+  line-height: 1.34;
+}
+
+.academic-intro p {
+  margin: 0.56rem 0;
+  font-size: 0.94rem;
+  line-height: 1.56;
+}
+
+.academic-columns {
+  gap: clamp(1rem, 2.8vw, 2.2rem);
+  margin-top: 1rem;
+  padding-top: 0.82rem;
+}
+
+.academic-columns h3 {
+  margin-bottom: 0.46rem;
+  font-size: 0.66rem;
+}
+
+.academic-columns li {
+  margin: 0.18rem 0;
+  line-height: 1.4;
+}
+
+.home-supplement {
+  gap: clamp(1.2rem, 3vw, 2.8rem);
+  padding: clamp(1.2rem, 2.8vw, 2.2rem) 0;
+}
+
+.home-supplement > div {
+  padding-top: 0.72rem;
+}
+
+.home-supplement h2 {
+  font-size: clamp(1.05rem, 1.55vw, 1.32rem);
+}
+
+.home-supplement p {
+  margin: 0.55rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.content-grid,
+.research-map,
+.pub-list,
+.portfolio-grid,
+.archive-list,
+.section,
+.project-list {
+  padding: clamp(1.05rem, 2.5vw, 1.85rem) 0;
+}
+
+.research-positioning,
+.method-integration {
+  gap: clamp(0.8rem, 2vw, 1.45rem);
+  padding: clamp(0.95rem, 2.2vw, 1.6rem) 0;
+}
+
+.research-positioning__main h2,
+.method-integration__intro h2 {
+  margin-bottom: 0.52rem;
+  font-size: clamp(1.12rem, 1.75vw, 1.52rem);
+}
+
+.research-positioning__main p,
+.research-positioning__aside p,
+.research-theme__body p,
+.method-integration__intro p,
+.method-grid p {
+  font-size: 0.86rem;
+  line-height: 1.42;
+}
+
+.research-positioning__main p,
+.research-theme__body > p {
+  margin-top: 0.44rem;
+}
+
+.research-positioning__aside {
+  padding: 0.82rem;
+}
+
+.research-positioning__aside h2 {
+  margin-bottom: 0.38rem;
+  font-size: clamp(1rem, 1.45vw, 1.25rem);
+}
+
+.research-positioning__aside dl {
+  margin-top: 0.62rem;
+}
+
+.research-positioning__aside div {
+  padding: 0.52rem;
+}
+
+.research-positioning__aside dt,
+.research-theme__meta span,
+.research-positioning__aside dd {
+  font-size: 0.62rem;
+}
+
+.research-theme-list {
+  padding: clamp(0.72rem, 1.8vw, 1.28rem) 0;
+}
+
+.research-theme,
+.research-theme--primary,
+.research-theme--wide {
+  gap: 0.72rem;
+  padding: clamp(0.72rem, 1.5vw, 1rem);
+}
+
+.research-theme--primary,
+.research-theme--wide {
+  grid-template-columns: minmax(125px, 0.18fr) minmax(0, 1fr);
+}
+
+.research-theme__meta span {
+  min-height: 1.55rem;
+  padding-inline: 0.42rem;
+}
+
+.research-theme__meta p {
+  max-width: 12rem;
+  margin-top: 0.42rem;
+  font-size: 0.72rem;
+  line-height: 1.3;
+}
+
+.research-theme__body h2,
+.research-theme--primary .research-theme__body h2,
+.research-theme--wide .research-theme__body h2 {
+  margin-bottom: 0.36rem;
+  font-size: clamp(1.08rem, 1.65vw, 1.52rem);
+  line-height: 1.12;
+}
+
+.research-theme__grid {
+  margin-top: 0.56rem;
+}
+
+.research-theme__grid section,
+.method-grid article {
+  min-height: 88px;
+  padding: 0.54rem;
+}
+
+.research-theme__grid h3,
+.method-grid h3 {
+  margin-bottom: 0.36rem;
+  font-size: clamp(0.9rem, 1.05vw, 1rem);
+}
+
+.research-theme__grid p,
+.method-grid p {
+  font-size: 0.78rem;
+  line-height: 1.38;
+}
+
+.method-integration {
+  grid-template-columns: minmax(0, 0.64fr) minmax(0, 1.36fr);
+}
+
+.method-integration__intro p {
+  margin-top: 0.46rem;
+}
+
+.pub-group {
+  gap: 0.62rem;
+  padding: clamp(1rem, 2vw, 1.55rem) 0;
+}
+
+.pub-group + .pub-group {
+  margin-top: 0.25rem;
+}
+
+.pub-group--primary {
+  padding-top: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.pub-group__header {
+  padding-bottom: clamp(0.6rem, 1.3vw, 0.85rem);
+}
+
+.pub-group h2 {
+  font-size: clamp(1.22rem, 2vw, 1.85rem);
+}
+
+.publication-summary {
+  margin-top: 0.48rem;
+  font-size: 0.86rem;
+  line-height: 1.42;
+}
+
+.publication-item {
+  grid-template-columns: minmax(0, 1fr) minmax(155px, 22%);
+  column-gap: clamp(0.75rem, 1.6vw, 1.2rem);
+  padding: clamp(0.68rem, 1.35vw, 0.9rem);
+}
+
+.publication-item h3 {
+  margin-top: 0.22rem;
+  font-size: clamp(0.98rem, 1.25vw, 1.16rem);
+  line-height: 1.2;
+}
+
+.publication-item p {
+  margin-top: 0.3rem;
+  font-size: 0.86rem;
+  line-height: 1.38;
+}
+
+.publication-links {
+  gap: 0.34rem;
+  margin-top: 0.45rem;
+}
+
+.publication-links a {
+  min-height: 1.56rem;
+  padding-inline: 0.48rem;
+  font-size: 0.6rem;
+}
+
+.project-list {
+  gap: 0.72rem;
+}
+
+.project-section-heading {
+  padding: clamp(0.72rem, 1.8vw, 1rem) 0 0.08rem;
+}
+
+.project-section-heading h2 {
+  max-width: 780px;
+  font-size: clamp(1.05rem, 1.65vw, 1.38rem);
+  line-height: 1.14;
+}
+
+.project-entry {
+  grid-template-columns: minmax(155px, 0.24fr) minmax(0, 0.76fr);
+  gap: clamp(0.95rem, 2.6vw, 2.2rem);
+  padding: clamp(0.78rem, 1.8vw, 1.18rem) 0;
+}
+
+.project-meta {
+  gap: 0.32rem;
+  font-size: 0.61rem;
+}
+
+.project-body h2 {
+  font-size: clamp(1.12rem, 1.72vw, 1.46rem);
+  line-height: 1.16;
+}
+
+.project-body p {
+  margin: 0.48rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.project-body dl {
+  gap: 0.36rem;
+  margin-top: 0.72rem;
+}
+
+.project-body dl div {
+  grid-template-columns: minmax(80px, 0.18fr) minmax(0, 0.82fr);
+  gap: 0.72rem;
+  padding-top: 0.38rem;
+}
+
+.project-body dt {
+  font-size: 0.6rem;
+}
+
+.project-body dd {
+  font-size: 0.86rem;
+  line-height: 1.36;
+}
+
+.about-title {
+  padding-bottom: clamp(0.95rem, 2.1vw, 1.55rem);
+}
+
+.about-wordcloud-section {
+  padding: clamp(0.85rem, 2vw, 1.35rem) 0 clamp(0.9rem, 2vw, 1.45rem);
+}
+
+.about-section {
+  grid-template-columns: minmax(135px, 0.2fr) minmax(0, 0.8fr);
+  gap: clamp(0.9rem, 2.4vw, 1.7rem);
+  padding: clamp(1rem, 2.4vw, 1.75rem) 0;
+}
+
+.about-section__heading h2 {
+  max-width: 220px;
+  font-size: clamp(0.96rem, 1.28vw, 1.12rem);
+}
+
+.about-word-cloud {
+  min-height: clamp(10.5rem, 20vw, 14.5rem);
+  max-width: 850px;
+  margin-top: 0.1rem;
+}
+
+.word-cloud__term--xxl {
+  font-size: clamp(1.32rem, 2.42vw, 2.05rem);
+}
+
+.word-cloud__term--xl {
+  font-size: clamp(0.98rem, 1.62vw, 1.38rem);
+}
+
+.word-cloud__term--lg {
+  font-size: clamp(0.8rem, 1.15vw, 1rem);
+}
+
+.word-cloud__term--md {
+  font-size: clamp(0.68rem, 0.94vw, 0.82rem);
+}
+
+.word-cloud__term--sm {
+  font-size: clamp(0.58rem, 0.78vw, 0.68rem);
+}
+
+.word-cloud__term--xs {
+  font-size: clamp(0.52rem, 0.66vw, 0.6rem);
+}
+
+.about-timeline,
+.timeline-list {
+  gap: 0.62rem;
+}
+
+.timeline-list article,
+.skill-grid section,
+.research-detail article {
+  padding: 0.72rem;
+}
+
+.timeline-list span {
+  margin-bottom: 0.34rem;
+  font-size: 0.6rem;
+}
+
+.about-page .about-timeline h3,
+.about-page .about-skill-grid h3 {
+  margin-bottom: 0.3rem;
+  font-size: clamp(0.98rem, 1.25vw, 1.1rem);
+}
+
+.about-page .about-timeline p,
+.about-page .about-skill-grid p {
+  margin-top: 0.34rem;
+  font-size: 0.88rem;
+  line-height: 1.42;
+}
+
+.about-skill-grid,
+.skill-grid {
+  gap: 0.68rem;
+}
+
+.about-section--map .about-section__body {
+  margin-top: 0.8rem;
+}
+
+.about-map {
+  gap: 0.62rem;
+}
+
+.about-webgis__viewport {
+  height: clamp(17rem, 38vw, 25rem);
+  min-height: 17rem;
+}
+
+.about-map__lists section {
+  padding: 0.65rem;
+}
+
+.about-map__lists h3 {
+  margin-bottom: 0.24rem;
+  font-size: 0.92rem;
+}
+
+.about-map__lists p {
+  font-size: 0.8rem;
+  line-height: 1.38;
+}
+
+.archive-list {
+  gap: 0.62rem;
+}
+
+.archive-item {
+  padding: 0.86rem;
+}
+
+.archive-item h2 {
+  margin: 0.42rem 0;
+  font-size: clamp(1.05rem, 1.55vw, 1.34rem);
+  line-height: 1.16;
+}
+
+.archive-item p {
+  margin: 0.45rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.42;
+}
+
+.portfolio-page--reader {
+  width: min(1000px, calc(100% - 2rem));
+}
+
+.portfolio-reader-shell,
+.portfolio-workbench--readers {
+  gap: clamp(0.95rem, 2.5vw, 1.65rem);
+}
+
+.portfolio-workbench--readers {
+  padding-top: clamp(0.85rem, 2vw, 1.35rem);
+}
+
+.portfolio-project-reader {
+  gap: 0.62rem;
+  padding: clamp(0.62rem, 1.2vw, 0.82rem);
+}
+
+.portfolio-reader-info {
+  gap: clamp(0.75rem, 1.6vw, 1rem);
+  padding: clamp(0.7rem, 1.3vw, 0.9rem);
+}
+
+.portfolio-reader-info__text h2 {
+  font-size: clamp(1.28rem, 2vw, 1.82rem);
+}
+
+.portfolio-reader-info__text p:not(.pub-meta) {
+  margin-top: 0.42rem;
+  font-size: 0.88rem;
+  line-height: 1.42;
+}
+
+.portfolio-reader-facts div {
+  padding: 0.55rem 0.65rem;
+}
+
+.portfolio-reader-facts dt {
+  font-size: 0.58rem;
+}
+
+.portfolio-reader-facts dd {
+  font-size: 0.8rem;
+  line-height: 1.25;
+}
+
+.portfolio-board-frame--reader,
+.portfolio-board-frame {
+  gap: 0.48rem;
+  padding: clamp(0.5rem, 1vw, 0.72rem);
+}
+
+.portfolio-board-toolbar {
+  min-height: 1.9rem;
+}
+
+.portfolio-board-count,
+.portfolio-board-open,
+.portfolio-board-button,
+.portfolio-slide-tabs button {
+  font-size: 0.58rem;
+}
+
+.portfolio-board-open,
+.portfolio-board-button,
+.portfolio-slide-tabs button {
+  min-height: 1.78rem;
+}
+
+.portfolio-board-toolbar strong {
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+}
+
+.portfolio-slide-tabs {
+  gap: 0.32rem;
+}
+
+.portfolio-slide-tabs--spreads button {
+  min-width: 1.95rem;
+  min-height: 1.72rem;
+}
+
+.portfolio-note {
+  padding-top: 0.65rem;
+}
+
+.portfolio-note p {
+  font-size: 0.66rem;
+  line-height: 1.42;
+}
+
+.site-footer {
+  width: min(1120px, calc(100% - 2rem));
+  margin-top: clamp(1.3rem, 3vw, 2.2rem);
+  padding: 0.95rem 0 1.25rem;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 980px) {
+  .research-positioning,
+  .method-integration,
+  .research-theme--primary,
+  .research-theme--wide,
+  .portfolio-reader-info {
+    grid-template-columns: 1fr;
+  }
+
+  .research-theme__meta p {
+    max-width: none;
+  }
+
+  .portfolio-reader-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  html {
+    font-size: 16px;
+  }
+
+  .home-main,
+  .page-shell,
+  .about-page,
+  .portfolio-page--reader {
+    width: min(100% - 1.15rem, 1120px);
+  }
+
+  .academic-profile,
+  .academic-columns,
+  .home-supplement,
+  .about-section,
+  .publication-item,
+  .project-entry,
+  .project-body dl div,
+  .method-integration,
+  .research-positioning {
+    grid-template-columns: 1fr;
+  }
+
+  .academic-sidebar {
+    padding-right: 0;
+  }
+
+  .page-title h1,
+  .about-title h1,
+  .research-title h1,
+  .portfolio-title--compact h1 {
+    font-size: clamp(1.65rem, 8vw, 2.25rem);
+  }
+
+  .about-word-cloud {
+    min-height: 0;
+  }
+
+  .about-webgis__viewport {
+    height: clamp(16rem, 72vw, 22rem);
+    min-height: 16rem;
+  }
+}
