@@ -5317,3 +5317,554 @@ html {
     min-height: 16rem;
   }
 }
+
+/* Density balance pass: keep typography readable while tightening structural whitespace. */
+html {
+  font-size: 16px;
+}
+
+.site-header {
+  padding-block: 0.54rem;
+}
+
+.brand-mark {
+  width: 2rem;
+  height: 2rem;
+}
+
+.nav a {
+  font-size: 0.68rem;
+}
+
+.theme-toggle {
+  min-height: 1.95rem;
+}
+
+.page-shell {
+  padding-top: 0.78rem;
+}
+
+.page-title,
+.research-title,
+.about-title,
+.portfolio-title--compact {
+  padding-block: clamp(0.78rem, 1.7vw, 1.28rem);
+}
+
+.page-title h1,
+.about-title h1,
+.research-title h1,
+.portfolio-title--compact h1 {
+  max-width: 850px;
+  font-size: clamp(1.62rem, 2.35vw, 2.22rem);
+  line-height: 1.07;
+}
+
+.page-lead,
+.portfolio-title--compact .portfolio-lead {
+  margin-top: 0.5rem;
+  font-size: 0.98rem;
+  line-height: 1.42;
+}
+
+.academic-home {
+  padding-top: 0.58rem;
+}
+
+.academic-profile {
+  gap: clamp(1.25rem, 3.6vw, 3.4rem);
+  padding: clamp(0.7rem, 1.75vw, 1.35rem) 0 clamp(1rem, 2.25vw, 1.72rem);
+}
+
+.academic-sidebar {
+  padding-right: clamp(0.7rem, 1.8vw, 1.22rem);
+}
+
+.academic-sidebar h1 {
+  font-size: clamp(1.9rem, 2.78vw, 2.58rem);
+}
+
+:root {
+  --profile-media-width: 10.45rem;
+  --measure: 70ch;
+}
+
+.portrait-frame {
+  margin-block: 0.52rem 0.58rem;
+}
+
+.profile-link-panel {
+  gap: 0.4rem;
+  margin-bottom: 0.56rem;
+}
+
+.academic-sidebar .profile-title {
+  margin-top: 0.52rem;
+  font-size: clamp(0.98rem, 1.18vw, 1.08rem);
+  line-height: 1.27;
+}
+
+.profile-meta {
+  gap: 0.34rem;
+  margin-top: 0.68rem;
+}
+
+.profile-meta div {
+  padding-top: 0.32rem;
+}
+
+.profile-meta dt {
+  font-size: 0.62rem;
+}
+
+.profile-meta dd {
+  font-size: 0.88rem;
+  line-height: 1.27;
+}
+
+.academic-sidebar .profile-actions {
+  margin-top: 0.66rem;
+}
+
+.academic-intro h2 {
+  font-size: clamp(1.42rem, 1.95vw, 1.88rem);
+}
+
+.intro-lead {
+  margin: 0.48rem 0 0.56rem;
+  font-size: clamp(1.1rem, 1.5vw, 1.28rem);
+  line-height: 1.32;
+}
+
+.academic-intro p {
+  margin: 0.46rem 0;
+  font-size: 0.99rem;
+  line-height: 1.5;
+}
+
+.academic-columns {
+  gap: clamp(0.9rem, 2.4vw, 1.9rem);
+  margin-top: 0.82rem;
+  padding-top: 0.68rem;
+}
+
+.academic-columns h3 {
+  margin-bottom: 0.36rem;
+  font-size: 0.68rem;
+}
+
+.academic-columns ul {
+  padding-left: 1rem;
+}
+
+.academic-columns li {
+  margin-block: 0.12rem;
+  font-size: 0.96rem;
+  line-height: 1.36;
+}
+
+.home-supplement {
+  gap: clamp(1rem, 2.6vw, 2.4rem);
+  padding: clamp(0.95rem, 2.25vw, 1.75rem) 0;
+}
+
+.home-supplement > div {
+  padding-top: 0.58rem;
+}
+
+.home-supplement h2 {
+  font-size: clamp(1.18rem, 1.7vw, 1.42rem);
+}
+
+.home-supplement p {
+  margin-top: 0.42rem;
+  font-size: 0.96rem;
+  line-height: 1.45;
+}
+
+.content-grid,
+.research-map,
+.pub-list,
+.portfolio-grid,
+.archive-list,
+.section,
+.project-list {
+  padding-block: clamp(0.92rem, 2.1vw, 1.58rem);
+}
+
+.research-positioning,
+.method-integration {
+  gap: clamp(0.7rem, 1.8vw, 1.25rem);
+  padding-block: clamp(0.82rem, 1.9vw, 1.38rem);
+}
+
+.research-positioning__main h2,
+.method-integration__intro h2 {
+  margin-bottom: 0.42rem;
+  font-size: clamp(1.22rem, 1.88vw, 1.65rem);
+}
+
+.research-positioning__main p,
+.research-positioning__aside p,
+.research-theme__body p,
+.method-integration__intro p,
+.method-grid p {
+  font-size: 0.92rem;
+  line-height: 1.42;
+}
+
+.research-positioning__main p,
+.research-theme__body > p,
+.method-integration__intro p {
+  margin-top: 0.36rem;
+}
+
+.research-positioning__aside {
+  padding: 0.72rem;
+}
+
+.research-positioning__aside h2 {
+  font-size: clamp(1.12rem, 1.55vw, 1.36rem);
+}
+
+.research-positioning__aside dl {
+  margin-top: 0.52rem;
+}
+
+.research-positioning__aside div {
+  padding: 0.44rem;
+}
+
+.research-positioning__aside dt,
+.research-theme__meta span,
+.research-positioning__aside dd {
+  font-size: 0.64rem;
+}
+
+.research-theme-list {
+  padding-block: clamp(0.62rem, 1.45vw, 1rem);
+}
+
+.research-theme,
+.research-theme--primary,
+.research-theme--wide {
+  gap: 0.58rem;
+  padding: clamp(0.64rem, 1.25vw, 0.88rem);
+}
+
+.research-theme--primary,
+.research-theme--wide {
+  grid-template-columns: minmax(128px, 0.17fr) minmax(0, 1fr);
+}
+
+.research-theme__meta span {
+  min-height: 1.58rem;
+}
+
+.research-theme__meta p {
+  margin-top: 0.32rem;
+  font-size: 0.76rem;
+  line-height: 1.28;
+}
+
+.research-theme__body h2,
+.research-theme--primary .research-theme__body h2,
+.research-theme--wide .research-theme__body h2 {
+  margin-bottom: 0.28rem;
+  font-size: clamp(1.18rem, 1.82vw, 1.66rem);
+}
+
+.research-theme__grid {
+  margin-top: 0.45rem;
+}
+
+.research-theme__grid section,
+.method-grid article {
+  min-height: 82px;
+  padding: 0.48rem;
+}
+
+.research-theme__grid h3,
+.method-grid h3 {
+  margin-bottom: 0.28rem;
+  font-size: clamp(0.96rem, 1.12vw, 1.06rem);
+}
+
+.research-theme__grid p,
+.method-grid p {
+  font-size: 0.84rem;
+  line-height: 1.34;
+}
+
+.pub-group {
+  gap: 0.5rem;
+  padding-block: clamp(0.82rem, 1.72vw, 1.3rem);
+}
+
+.pub-group__header {
+  padding-bottom: clamp(0.48rem, 1vw, 0.7rem);
+}
+
+.pub-group h2 {
+  font-size: clamp(1.38rem, 2.15vw, 2rem);
+}
+
+.publication-summary {
+  margin-top: 0.38rem;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.publication-item {
+  grid-template-columns: minmax(0, 1fr) minmax(165px, 22%);
+  column-gap: clamp(0.68rem, 1.4vw, 1.05rem);
+  padding: clamp(0.58rem, 1.12vw, 0.78rem);
+}
+
+.publication-item h3 {
+  margin-top: 0.16rem;
+  font-size: clamp(1.06rem, 1.36vw, 1.24rem);
+  line-height: 1.18;
+}
+
+.publication-item p {
+  margin-top: 0.24rem;
+  font-size: 0.91rem;
+  line-height: 1.34;
+}
+
+.publication-authors {
+  font-size: 0.9rem;
+}
+
+.publication-links {
+  margin-top: 0.34rem;
+}
+
+.publication-links a {
+  min-height: 1.5rem;
+  font-size: 0.62rem;
+}
+
+.project-list {
+  gap: 0.56rem;
+}
+
+.project-section-heading {
+  padding: clamp(0.56rem, 1.42vw, 0.84rem) 0 0.04rem;
+}
+
+.project-section-heading h2 {
+  font-size: clamp(1.14rem, 1.78vw, 1.5rem);
+}
+
+.project-entry {
+  gap: clamp(0.8rem, 2.2vw, 1.85rem);
+  padding: clamp(0.62rem, 1.42vw, 0.95rem) 0;
+}
+
+.project-meta {
+  gap: 0.24rem;
+  font-size: 0.64rem;
+}
+
+.project-body h2 {
+  font-size: clamp(1.22rem, 1.88vw, 1.62rem);
+}
+
+.project-body p {
+  margin-block: 0.34rem;
+  font-size: 0.95rem;
+  line-height: 1.43;
+}
+
+.project-body dl {
+  gap: 0.28rem;
+  margin-top: 0.52rem;
+}
+
+.project-body dl div {
+  gap: 0.62rem;
+  padding-top: 0.3rem;
+}
+
+.project-body dt {
+  font-size: 0.62rem;
+}
+
+.project-body dd {
+  font-size: 0.9rem;
+  line-height: 1.32;
+}
+
+.about-wordcloud-section {
+  padding-block: clamp(0.66rem, 1.55vw, 1.08rem);
+}
+
+.about-section {
+  gap: clamp(0.72rem, 2vw, 1.45rem);
+  padding-block: clamp(0.82rem, 1.95vw, 1.45rem);
+}
+
+.about-section__heading h2 {
+  font-size: clamp(1.02rem, 1.35vw, 1.18rem);
+}
+
+.about-word-cloud {
+  min-height: clamp(9.6rem, 18vw, 13.2rem);
+}
+
+.word-cloud__term--xxl {
+  font-size: clamp(1.42rem, 2.58vw, 2.18rem);
+}
+
+.word-cloud__term--xl {
+  font-size: clamp(1.04rem, 1.74vw, 1.48rem);
+}
+
+.word-cloud__term--lg {
+  font-size: clamp(0.86rem, 1.22vw, 1.08rem);
+}
+
+.word-cloud__term--md {
+  font-size: clamp(0.72rem, 1vw, 0.88rem);
+}
+
+.about-timeline,
+.timeline-list {
+  gap: 0.48rem;
+}
+
+.timeline-list article,
+.skill-grid section,
+.research-detail article {
+  padding: 0.62rem;
+}
+
+.timeline-list span {
+  margin-bottom: 0.24rem;
+  font-size: 0.62rem;
+}
+
+.about-page .about-timeline h3,
+.about-page .about-skill-grid h3 {
+  margin-bottom: 0.22rem;
+  font-size: clamp(1.04rem, 1.32vw, 1.18rem);
+}
+
+.about-page .about-timeline p,
+.about-page .about-skill-grid p {
+  margin-top: 0.26rem;
+  font-size: 0.94rem;
+  line-height: 1.36;
+}
+
+.about-skill-grid,
+.skill-grid {
+  gap: 0.5rem;
+}
+
+.about-webgis__viewport {
+  height: clamp(16rem, 35vw, 23.5rem);
+  min-height: 16rem;
+}
+
+.about-map__lists section {
+  padding: 0.54rem;
+}
+
+.about-map__lists p {
+  font-size: 0.86rem;
+  line-height: 1.34;
+}
+
+.archive-list {
+  gap: 0.48rem;
+}
+
+.archive-item {
+  padding: 0.72rem;
+}
+
+.archive-item h2 {
+  margin-block: 0.32rem;
+  font-size: clamp(1.14rem, 1.68vw, 1.46rem);
+}
+
+.archive-item p {
+  margin-top: 0.32rem;
+  font-size: 0.94rem;
+  line-height: 1.36;
+}
+
+.portfolio-page--reader {
+  width: min(1040px, calc(100% - 2rem));
+}
+
+.portfolio-workbench--readers {
+  gap: clamp(0.78rem, 2vw, 1.35rem);
+  padding-top: clamp(0.65rem, 1.55vw, 1rem);
+}
+
+.portfolio-project-reader {
+  gap: 0.48rem;
+  padding: clamp(0.52rem, 1vw, 0.72rem);
+}
+
+.portfolio-reader-info {
+  gap: clamp(0.62rem, 1.35vw, 0.85rem);
+  padding: clamp(0.58rem, 1.08vw, 0.78rem);
+}
+
+.portfolio-reader-info__text h2 {
+  font-size: clamp(1.42rem, 2.18vw, 1.98rem);
+}
+
+.portfolio-reader-info__text p:not(.pub-meta) {
+  margin-top: 0.32rem;
+  font-size: 0.94rem;
+  line-height: 1.34;
+}
+
+.portfolio-reader-facts div {
+  padding: 0.46rem 0.56rem;
+}
+
+.portfolio-reader-facts dt {
+  font-size: 0.6rem;
+}
+
+.portfolio-reader-facts dd {
+  font-size: 0.86rem;
+}
+
+.portfolio-board-frame--reader,
+.portfolio-board-frame {
+  gap: 0.38rem;
+  padding: clamp(0.44rem, 0.86vw, 0.62rem);
+}
+
+.portfolio-board-toolbar strong {
+  font-size: clamp(0.98rem, 1.18vw, 1.08rem);
+}
+
+.portfolio-board-count,
+.portfolio-board-open,
+.portfolio-board-button,
+.portfolio-slide-tabs button {
+  font-size: 0.6rem;
+}
+
+.portfolio-note {
+  padding-top: 0.5rem;
+}
+
+.portfolio-note p {
+  font-size: 0.72rem;
+}
+
+.site-footer {
+  margin-top: clamp(1rem, 2.4vw, 1.72rem);
+  padding-block: 0.78rem 1.05rem;
+  font-size: 0.86rem;
+}
