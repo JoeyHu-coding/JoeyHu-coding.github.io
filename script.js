@@ -426,7 +426,7 @@ function initPortfolioViewers() {
       const activeTitle = activeSlide.dataset.slideTitle || `Board ${current + 1}`;
 
       if (counter) {
-        counter.textContent = `${current + 1} / ${slides.length}`;
+        counter.textContent = `${current + 1} of ${slides.length}`;
       }
 
       if (title) {
