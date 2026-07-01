@@ -876,6 +876,14 @@ html[data-theme="light"] .button:hover {
   object-fit: cover;
 }
 
+.publication-figure--manuscript {
+  aspect-ratio: 4 / 3;
+}
+
+.publication-figure--manuscript img {
+  object-fit: contain;
+}
+
 .pub-badge {
   display: inline-flex;
   align-items: center;
