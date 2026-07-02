@@ -884,6 +884,18 @@ html[data-theme="light"] .button:hover {
   object-fit: contain;
 }
 
+.publication-item--manuscript .pub-meta {
+  max-width: none;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .publication-item--manuscript .pub-meta {
+    white-space: normal;
+  }
+}
+
 .pub-badge {
   display: inline-flex;
   align-items: center;
@@ -6037,5 +6049,15 @@ html {
 
   .future-research__item span {
     width: 3.2rem;
+  }
+}
+
+.publication-item--manuscript {
+  grid-template-columns: minmax(0, 1fr) minmax(130px, 18%);
+}
+
+@media (max-width: 720px) {
+  .publication-item--manuscript {
+    grid-template-columns: 1fr;
   }
 }
