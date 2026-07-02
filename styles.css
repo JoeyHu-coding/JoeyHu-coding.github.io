@@ -5955,7 +5955,9 @@ html {
 }
 
 .future-research {
+  margin-top: clamp(0.35rem, 1.1vw, 0.8rem);
   padding-block: clamp(1rem, 2.35vw, 1.75rem);
+  border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
