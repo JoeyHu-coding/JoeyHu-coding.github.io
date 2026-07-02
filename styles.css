@@ -6051,13 +6051,3 @@ html {
     width: 3.2rem;
   }
 }
-
-.publication-item--manuscript {
-  grid-template-columns: minmax(0, 1fr) minmax(130px, 18%);
-}
-
-@media (max-width: 720px) {
-  .publication-item--manuscript {
-    grid-template-columns: 1fr;
-  }
-}
